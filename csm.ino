@@ -154,6 +154,7 @@ void loop()
   }
 
   // TODO: send response to master saying its ready
+  //  - Once Master receives this, then it will send BROADCAST message to all nodes to display message
 
   // TODO: Wait for master to send GO and then display
   display();
