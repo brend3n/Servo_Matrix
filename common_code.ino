@@ -19,7 +19,7 @@ void write_element(uint8_t board_index, uint8_t pin, uint8_t state)
 {
   boards[board_index].setPin(pin,state,false);
 }
-
+/*
 // Sets up function pointer 3d array
 void init_fp_matrix()
 {
@@ -47,6 +47,36 @@ void init_fp_matrix()
     }
   }
 }
+*/
+// Sets up function pointer 3d array
+void init_fp_matrix()
+{
+  uint8_t row = 0;
+  uint8_t col = 0;
+
+  for(uint8_t k = 0; k < 2; k++)
+  {
+    for(uint8_t i = 0; i < NUM_BOARDS; i++)
+    {
+      for(uint8_t j = 0; j < 16; j++)
+      {
+        // Stop putting function pointers at end of COLS
+        if (col == NUM_COLS)
+        {
+          col = 0;
+          row++;
+        }
+        // If this works, then obiviously change this and the matrix_ops structure 
+        // also get rid of outermost for loop.
+        if (k==0)
+          matrix_ops[OFF][row][col] = write_element;
+        else
+          matrix_ops[ON][row][col] = write_element;
+        col++;   // Go to next position to fill
+      } 
+    }
+  }
+}
 
 void display(){
   for(uint8_t i = 0; i < NUM_ROWS; i++)
@@ -55,7 +85,7 @@ void display(){
     {
       // Display if there is something
       if(matrix[i][j])
-        matrix_ops[ON][i][j]();
+        matrix_ops[ON][i][j](i,j,ON); // Not sure if this is right
       else
         continue;
     } 
