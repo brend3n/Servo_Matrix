@@ -1,5 +1,11 @@
+// Hardware libraries
 #include <Wire.h>
 #include <Adafruit_PwmServoDriver.h>
+
+// Software libraries
+#include <stdio.h>
+#include <stdbool.h>
+#include <string> // cpp string library
 
 #define NUM_BOARDS 6
 
@@ -43,10 +49,10 @@ addr_t base_addr = 0x40;
 // this function will then send each module thr pattern to display
 
 // TODO: get_matrix_to_ display()
-void get_matrix_to_display()
+boolean get_matrix_to_display()
 {
-    // Wait for i2c message
-    // Message should contain matrix of size [NUM_ROWS][NUM_COLS]
+    // Wait for i2c message from master
+      // Message should contain matrix of size [NUM_ROWS][NUM_COLS]
     // Save Matrix in matrix (global)
     return;
 }
