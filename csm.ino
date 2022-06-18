@@ -75,7 +75,8 @@ void init_matrix()
   uint8_t row = 0;
   uint8_t col = 0;
 
-  for(uint8_t k = 0; k < 2; k++){
+  for(uint8_t k = 0; k < 2; k++)
+  {
     for(uint8_t i = 0; i < NUM_BOARDS; i++)
     {
       for(uint8_t j = 0; j < 16; j++)
