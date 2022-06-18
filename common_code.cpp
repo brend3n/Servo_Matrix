@@ -19,6 +19,7 @@ void write_element(uint8_t board_index, uint8_t pin, uint8_t state)
 {
   boards[board_index].setPin(pin,state,false);
 }
+
 /*
 // Sets up function pointer 3d array
 void init_fp_matrix()
@@ -85,7 +86,7 @@ void display(){
     {
       // Display if there is something
       if(matrix[i][j])
-        matrix_ops[ON][i][j](i,j,ON); // Not sure if this is right
+        matrix_ops[ON][i][j](i,j,ON); // Not sure if this is right...probably need to fix this
       else
         continue;
     } 

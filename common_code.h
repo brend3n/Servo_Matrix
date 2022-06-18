@@ -1,9 +1,9 @@
 #ifndef COMMON_CODE_H_
 #define COMMON_CODE_H_
 // Hardware libraries
-// #include <Wire.h>
-// #include <Adafruit_PwmServoDriver.h>
-// #include "Arduino.h"
+#include <Wire.h>
+#include <Adafruit_PwmServoDriver.h>
+#include "Arduino.h"
 
 // Software libraries
 #include <stdio.h>
@@ -28,8 +28,6 @@
 
 // Typedef for function pointers
 typedef void (*matrix_write)(uint8_t, uint8_t, uint8_t);
-
-
 
 // Sets all of the pins either on or off
 // Params: state: pass in either ON or OFF
