@@ -70,7 +70,8 @@ void write_element(uint8_t board_index, uint8_t pin, uint8_t state)
   boards[board_index].setPin(pin,state,false);
 }
 
-void init_matrix()
+// Sets up function pointer 3d array
+void init_fp_matrix()
 {
   uint8_t row = 0;
   uint8_t col = 0;
@@ -127,12 +128,19 @@ void setup(){
     boards[i].setPwmFreq(PWM_FREQ);
   }
 	
+  // Initialize the matrix for function pointers
+  init_fp_matrix();
+
   // Turn all servos to OFF position
   set_all(OFF_STATE);
 }
 
-void loop(){
+void loop()
+{
+  while(get_matrix_to_display() != true){
+    // Do nothing until matrix is ready
+  }
+
+  display();
 
 }
-
-
