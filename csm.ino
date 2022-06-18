@@ -9,6 +9,8 @@
 
 #define NUM_BOARDS 6
 
+#define DELAY_BETWEEN_STRINGS_MS 5000 // 5 seconds
+
 #define OFF_STATE 0   // PWM for off
 #define ON_STATE 4095 // PWM for on
 
@@ -51,8 +53,8 @@ addr_t base_addr = 0x40;
 // TODO: get_matrix_to_ display()
 boolean get_matrix_to_display()
 {
-    // Wait for i2c message from master
-      // Message should contain matrix of size [NUM_ROWS][NUM_COLS]
+    // Wait for CAN or ESP-NOW message from master
+      // - Message should contain matrix of size [NUM_ROWS][NUM_COLS]
     // Save Matrix in matrix (global)
     return;
 }
@@ -129,9 +131,13 @@ void setup(){
   // Setting up each pwm driver board
   for(uint8_t i = 0;i < NUM_BOARDS; i++)
   {
+    // Call constructor
     boards[i] = Adafruit_PwmServoDriver(addresses[i]);
-    boards[i] = begin();
-    boards[i].setPwmFreq(PWM_FREQ);
+
+    // Setup board class for Pwm Servo Driver
+    boards[i].begin();
+    boards[i].setPwmFreq(PWM_FREQ);  // I think this value needs to be set better
+    
   }
 	
   // Initialize the matrix for function pointers
@@ -151,5 +157,8 @@ void loop()
 
   // TODO: Wait for master to send GO and then display
   display();
+
+  delay(DELAY_BETWEEN_STRINGS_MS); // Set 
+  set_all(OFF_STATE);
 
 }
