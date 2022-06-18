@@ -147,6 +147,9 @@ void loop()
     // Do nothing until matrix is ready
   }
 
+  // TODO: send response to master saying its ready
+
+  // TODO: Wait for master to send GO and then display
   display();
 
 }
