@@ -11,7 +11,7 @@
 bool matrix[NUM_ROWS][NUM_COLS];
 
 // Function pointers to control each servo in the matrix
-matrix_write matrix_ops[2][NUM_ROWS][NUM_COLS];
+struct matrix_element matrix_ops[NUM_ROWS][NUM_COLS];
 
 
 // All the drivers on a single module
@@ -19,16 +19,16 @@ Adafruit_PwmServoDriver boards[NUM_BOARDS];
 
 // Stores all of the address for each board
 // TODO: This should be used by the master module for getting all of the i2c address to send to
-addr_t addresses[NUM_BOARDS];
+uint32_t addresses[NUM_BOARDS];
 
-addr_t base_addr = 0x40;
+uint32_t base_addr = 0x40;
 
 
 // TODO: MASTER ONLY function to take string and convert to text that will fit in modules combined matrix
 // this function will then send each module thr pattern to display
 
 // TODO: get_matrix_to_ display()
-boolean get_matrix_to_display()
+bool get_matrix_to_display()
 {
     // Wait for CAN or ESP-NOW message from master
       // - Message should contain matrix of size [NUM_ROWS][NUM_COLS]
