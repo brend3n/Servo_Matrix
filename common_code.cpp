@@ -46,6 +46,7 @@ void init_fp_matrix()
   }
 }
 
+// Sets the passed in matrix cell to the desired character.
 void get_character_cell(char ch, bool(&m)[CELL_HEIGHT][CELL_WIDTH])
 {
   /*Characters*/
