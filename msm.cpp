@@ -77,6 +77,9 @@ void loop()
 
   // TODO: Wait for master to send GO and then display
 
+  if (!string_to_matrix(in, &matrix)){
+    return; // Restart the loop
+  }
 
   display();
 

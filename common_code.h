@@ -1,6 +1,9 @@
 #ifndef COMMON_CODE_H_
 #define COMMON_CODE_H_
 
+// character in matrix
+#include "character_matrices.h"
+
 // Software libraries
 #include <stdio.h>
 #include <stdbool.h>
@@ -54,7 +57,7 @@ void init_fp_matrix();
 // Returns:
 //        true <- if string can fit
 //        false <- if string cannot fit
-bool string_to_matrix(String str, bool** matrix);
+bool string_to_matrix(String str, bool (&matrix)[NUM_ROWS][NUM_COLS]);
 
 // Show matrix
 void display();

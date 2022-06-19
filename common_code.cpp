@@ -50,8 +50,14 @@ void init_fp_matrix()
 // Returns:
 //        true <- if string can fit
 //        false <- if string cannot fit
-bool string_to_matrix(String str, bool** matrix){
-  
+bool string_to_matrix(String str, bool (&matrix)[NUM_ROWS][NUM_COLS]){
+  /**
+   * TODO:
+   * 
+   * Figure out spaces between words/letters/etc.
+   * 
+   * 
+   */
   return true;
 }
 
