@@ -1,7 +1,7 @@
 #ifndef COMMON_CODE_H_
 #define COMMON_CODE_H_
 // Hardware libraries
-#include <Wire.h>
+#include "Wire.h"
 #include "Adafruit_PwmServoDriver.h"
 #include "Arduino.h"
 
