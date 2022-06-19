@@ -47,6 +47,15 @@ void write_element(uint8_t board_index, uint8_t pin, uint8_t state);
 // Sets up function pointer 3d array
 void init_fp_matrix();
 
+
+// Params: 
+//        str <- string to print
+//        matrix <- reference to matrix to fill
+// Returns:
+//        true <- if string can fit
+//        false <- if string cannot fit
+bool string_to_matrix(String str, bool** matrix);
+
 // Show matrix
 void display();
 

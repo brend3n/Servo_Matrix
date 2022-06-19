@@ -44,6 +44,18 @@ void init_fp_matrix()
   }
 }
 
+// Params: 
+//        str <- string to print
+//        matrix <- reference to matrix to fill
+// Returns:
+//        true <- if string can fit
+//        false <- if string cannot fit
+bool string_to_matrix(String str, bool** matrix){
+  
+  return true;
+}
+
+
 void display(){
   for(uint8_t i = 0; i < NUM_ROWS; i++)
   {

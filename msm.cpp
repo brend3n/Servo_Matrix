@@ -2,17 +2,14 @@
 #include "common_code.h"
 
 
-
 // TODO: set this for each module
 #define MODULE_ID 0
-
 
 // Global matrix for display on a single board
 bool matrix[NUM_ROWS][NUM_COLS];
 
 // Function pointers to control each servo in the matrix
 struct matrix_element matrix_ops[NUM_ROWS][NUM_COLS];
-
 
 // All the drivers on a single module
 Adafruit_PwmServoDriver boards[NUM_BOARDS];
@@ -39,6 +36,8 @@ bool get_matrix_to_display()
 
 
 void setup(){
+
+  Serial.begin(9600);
 
   // Setting all of the addresses
   for (uint8_t i = 0;i < NUM_BOARDS; i++)
@@ -67,11 +66,11 @@ void setup(){
 
 void loop()
 {
-  // Master code is a bit different so this is not right at the moment
+  String in;
 
-  // TODO: get_matrix_top_display() is not done yet
-  // Do nothing until matrix is ready
-  while(get_matrix_to_display() != true);
+  while(!Serial.available()){} // Wait for string to be available
+
+  in = Serial.readString();
 
   // TODO: send response to master saying its ready
   //  - Once Master receives this, then it will send BROADCAST message to all nodes to display message
