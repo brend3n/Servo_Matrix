@@ -3,10 +3,6 @@
 
 #define CELL_WIDTH  5
 #define CELL_HEIGHT 7
-enum characters{
-    a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,
-    A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z
-};
 
 // Template for a character
 // char NAME [CELL_HEIGHT][CELL_WIDTH] = {
@@ -715,7 +711,7 @@ char COMMA [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,1,0,0,0},
 };
-char UNDERSCROE [CELL_HEIGHT][CELL_WIDTH] = {
+char UNDERSCORE [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,0,0,0,0},
