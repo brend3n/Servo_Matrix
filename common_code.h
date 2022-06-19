@@ -8,7 +8,9 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <string.h> // cpp string library
+#include <ctype.h>
 
 // Hardware libraries
 #include "Wire.h"
