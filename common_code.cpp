@@ -46,12 +46,19 @@ void init_fp_matrix()
   }
 }
 
+bool [][] get_character_cell(char c)
+{
+
+}
+
 // Return true if char can fit in matrix, otherwise return false
 // Also, append the char to the matrix
 bool append_char_to_matrix(char c, bool(&matrix)[NUM_ROWS][NUM_COLS])
 {
   // if c is a space, how many spaces (columns) to pad with
   // Ignore newline character
+
+  bool cell[CELL_HEIGHT][CELL_WIDTH] = get_character_cell(c);
   
 }
 
