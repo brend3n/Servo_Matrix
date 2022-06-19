@@ -9,15 +9,15 @@ enum characters{
 };
 
 // Template for a character
-char NAME [CELL_HEIGHT][CELL_WIDTH] = {
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-};
+// char NAME [CELL_HEIGHT][CELL_WIDTH] = {
+//     {},
+//     {},
+//     {},
+//     {},
+//     {},
+//     {},
+//     {},
+// };
 
 /*Uppercase*/
 char A [CELL_HEIGHT][CELL_WIDTH] = {
