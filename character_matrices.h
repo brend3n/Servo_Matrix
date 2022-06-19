@@ -15,8 +15,30 @@
 //     {},
 // };
 
+
+// Access array elements through enum
+enum characters_enum{
+  ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,
+  SPACE,CURSOR,COLON,PERIOD,LEFT_PAREN,RIGHT_PAREN,PLUS,
+  MULT,EQUAL,EXCLAM_POINT,QUESTION_MARK,MINUS,PERCENT,
+  COMMA,UNDERSCORE,AT_SIGN,
+  A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,
+  a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z
+};
+
+// Array for all character representations
+bool characters[][CELL_HEIGHT][CELL_WIDTH] = 
+{
+  ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,
+  SPACE,CURSOR,COLON,PERIOD,LEFT_PAREN,RIGHT_PAREN,PLUS,
+  MULT,EQUAL,EXCLAM_POINT,QUESTION_MARK,MINUS,PERCENT,
+  COMMA,UNDERSCORE,AT_SIGN,
+  A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,
+  a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z
+};
+
 /*Uppercase*/
-char A [CELL_HEIGHT][CELL_WIDTH] = {
+bool A [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -26,7 +48,7 @@ char A [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1}
 };
 
-char B [CELL_HEIGHT][CELL_WIDTH] = {
+bool B [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -36,7 +58,7 @@ char B [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,0},
 };
 
-char C [CELL_HEIGHT][CELL_WIDTH] = {
+bool C [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,0},
@@ -45,7 +67,7 @@ char C [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0},
 };
-char D [CELL_HEIGHT][CELL_WIDTH] = {
+bool D [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -54,7 +76,7 @@ char D [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,1,1,1,0},
 };
-char E [CELL_HEIGHT][CELL_WIDTH] = {
+bool E [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,1},
     {1,0,0,0,0},
     {1,0,0,0,0},
@@ -63,7 +85,7 @@ char E [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,0},
     {1,1,1,1,1},
 };
-char F [CELL_HEIGHT][CELL_WIDTH] = {
+bool F [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,1},
     {1,0,0,0,0},
     {1,0,0,0,0},
@@ -72,7 +94,7 @@ char F [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,0},
     {1,0,0,0,0},
 };
-char G [CELL_HEIGHT][CELL_WIDTH] = {
+bool G [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,0},
@@ -81,7 +103,7 @@ char G [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0},
 };
-char H [CELL_HEIGHT][CELL_WIDTH] = {
+bool H [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -90,7 +112,7 @@ char H [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1},
 };
-char I [CELL_HEIGHT][CELL_WIDTH] = {
+bool I [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {0,0,1,0,0},
     {0,0,1,0,0},
@@ -99,7 +121,7 @@ char I [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,1,1,1,0},
 };
-char J [CELL_HEIGHT][CELL_WIDTH] = {
+bool J [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,1},
     {0,0,0,0,1},
     {0,0,0,0,1},
@@ -108,7 +130,7 @@ char J [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0},
 };
-char K [CELL_HEIGHT][CELL_WIDTH] = {
+bool K [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,1,0},
     {1,0,1,0,0},
@@ -117,7 +139,7 @@ char K [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {1,0,0,0,1},
 };
-char L [CELL_HEIGHT][CELL_WIDTH] = {
+bool L [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,0},
     {1,0,0,0,0},
     {1,0,0,0,0},
@@ -126,7 +148,7 @@ char L [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,0},
     {1,1,1,1,1},
 };
-char M [CELL_HEIGHT][CELL_WIDTH] = {
+bool M [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,1,0,1,1},
     {1,0,1,0,1},
@@ -135,7 +157,7 @@ char M [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1},
 };
-char N [CELL_HEIGHT][CELL_WIDTH] = {
+bool N [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1},
     {1,1,0,0,1},
@@ -144,7 +166,7 @@ char N [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1},
 };
-char O [CELL_HEIGHT][CELL_WIDTH] = {
+bool O [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -153,7 +175,7 @@ char O [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0},
 };
-char P [CELL_HEIGHT][CELL_WIDTH] = {
+bool P [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -162,7 +184,7 @@ char P [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,0},
     {1,0,0,0,0},
 };
-char Q [CELL_HEIGHT][CELL_WIDTH] = {
+bool Q [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -171,7 +193,7 @@ char Q [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,1},
     {0,1,1,1,1},
 };
-char R [CELL_HEIGHT][CELL_WIDTH] = {
+bool R [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -180,7 +202,7 @@ char R [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {1,0,0,0,1},
 };
-char S [CELL_HEIGHT][CELL_WIDTH] = {
+bool S [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,0},
@@ -189,7 +211,7 @@ char S [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0},
 };
-char T [CELL_HEIGHT][CELL_WIDTH] = {
+bool T [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,1},
     {0,0,1,0,0},
     {0,0,1,0,0},
@@ -198,7 +220,7 @@ char T [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,0,1,0,0},
 };
-char U [CELL_HEIGHT][CELL_WIDTH] = {
+bool U [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -207,7 +229,7 @@ char U [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0},
 };
-char V [CELL_HEIGHT][CELL_WIDTH] = {
+bool V [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -216,7 +238,7 @@ char V [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,0,1,0},
     {0,0,1,0,0},
 };
-char W [CELL_HEIGHT][CELL_WIDTH] = {
+bool W [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -225,7 +247,7 @@ char W [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,0,1,1},
     {1,0,0,0,1},
 };
-char X [CELL_HEIGHT][CELL_WIDTH] = {
+bool X [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1},
     {0,1,0,1,0},
@@ -234,7 +256,7 @@ char X [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1},
 };
-char Y [CELL_HEIGHT][CELL_WIDTH] = {
+bool Y [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -243,7 +265,7 @@ char Y [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,0,1,0,0},
 };
-char Z [CELL_HEIGHT][CELL_WIDTH] = {
+bool Z [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,1},
     {0,0,0,0,1},
     {0,0,0,1,0},
@@ -254,7 +276,7 @@ char Z [CELL_HEIGHT][CELL_WIDTH] = {
 };
 
 /*Lowercase*/
-char a [CELL_HEIGHT][CELL_WIDTH] = {
+bool a [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,1,1,0,0},
@@ -263,7 +285,7 @@ char a [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {0,1,1,1,0},
 };
-char b [CELL_HEIGHT][CELL_WIDTH] = {
+bool b [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {1,0,0,0,0},
     {1,0,0,0,0},
@@ -272,7 +294,7 @@ char b [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {1,1,1,0,0},
 };
-char c [CELL_HEIGHT][CELL_WIDTH] = {
+bool c [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,1,1,0,0},
@@ -281,7 +303,7 @@ char c [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {0,1,1,0,0},
 };
-char d [CELL_HEIGHT][CELL_WIDTH] = {
+bool d [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,1,0},
     {0,0,0,1,0},
@@ -290,7 +312,7 @@ char d [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {0,1,1,1,0},
 };
-char e [CELL_HEIGHT][CELL_WIDTH] = {
+bool e [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,1,1,0,0},
@@ -299,7 +321,7 @@ char e [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,0},
     {0,1,1,1,0},
 };
-char f [CELL_HEIGHT][CELL_WIDTH] = {
+bool f [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,1,0},
     {0,1,0,0,0},
     {1,1,1,1,0},
@@ -308,7 +330,7 @@ char f [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,0,0,0},
     {0,1,0,0,0},
 };
-char g [CELL_HEIGHT][CELL_WIDTH] = {
+bool g [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,1,1,1,0},
     {1,0,0,1,0},
@@ -317,7 +339,7 @@ char g [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,1,0},
     {1,1,1,0,0},
 };
-char h [CELL_HEIGHT][CELL_WIDTH] = {
+bool h [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,0},
     {1,0,0,0,0},
     {1,0,0,0,0},
@@ -326,7 +348,7 @@ char h [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {1,0,0,1,0},
 };
-char i [CELL_HEIGHT][CELL_WIDTH] = {
+bool i [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,0,0,0,0},
     {0,0,1,0,0},
@@ -335,7 +357,7 @@ char i [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,0,1,0,0},
 };
-char j [CELL_HEIGHT][CELL_WIDTH] = {
+bool j [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,1,0},
     {0,0,0,1,0},
@@ -344,7 +366,7 @@ char j [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {0,1,1,0,0},
 };
-char k [CELL_HEIGHT][CELL_WIDTH] = {
+bool k [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {1,0,0,0,0},
     {1,0,0,1,0},
@@ -353,7 +375,7 @@ char k [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {1,0,0,1,0},
 };
-char l [CELL_HEIGHT][CELL_WIDTH] = {
+bool l [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,0,1,0,0},
     {0,0,1,0,0},
@@ -362,7 +384,7 @@ char l [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,0,1,0,0},
 };
-char m [CELL_HEIGHT][CELL_WIDTH] = {
+bool m [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,1,1,1,0},
@@ -371,7 +393,7 @@ char m [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,1,0,1},
     {1,0,1,0,1},
 };
-char n [CELL_HEIGHT][CELL_WIDTH] = {
+bool n [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,1,1,0,0},
@@ -380,7 +402,7 @@ char n [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {1,0,0,1,0},
 };
-char o [CELL_HEIGHT][CELL_WIDTH] = {
+bool o [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,1,1,0,0},
@@ -389,7 +411,7 @@ char o [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {0,1,1,0,0},
 };
-char p [CELL_HEIGHT][CELL_WIDTH] = {
+bool p [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,1,1,0,0},
@@ -398,7 +420,7 @@ char p [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,0,0},
     {1,0,0,0,0},
 };
-char q [CELL_HEIGHT][CELL_WIDTH] = {
+bool q [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,0,1,1,1},
@@ -407,7 +429,7 @@ char q [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,1,1},
     {0,0,0,0,1},
 };
-char r [CELL_HEIGHT][CELL_WIDTH] = {
+bool r [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,1,1,0,0},
@@ -416,7 +438,7 @@ char r [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,0},
     {1,0,0,0,0},
 };
-char s [CELL_HEIGHT][CELL_WIDTH] = {
+bool s [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,1,1,1,0},
@@ -425,7 +447,7 @@ char s [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,1,0},
     {1,1,1,0,0},
 };
-char t [CELL_HEIGHT][CELL_WIDTH] = {
+bool t [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,1,0,0,0},
     {1,1,1,1,0},
@@ -434,7 +456,7 @@ char t [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,0,0,0},
     {0,0,1,1,0},
 };
-char u [CELL_HEIGHT][CELL_WIDTH] = {
+bool u [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,0,0,1,0},
@@ -443,7 +465,7 @@ char u [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {0,1,1,1,0},
 };
-char v [CELL_HEIGHT][CELL_WIDTH] = {
+bool v [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,0,0,0,1},
@@ -452,7 +474,7 @@ char v [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,0,1,0},
     {0,0,1,0,0},
 };
-char w [CELL_HEIGHT][CELL_WIDTH] = {
+bool w [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,0,0,0,1},
@@ -461,7 +483,7 @@ char w [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,1,0,1},
     {0,1,0,1,0},
 };
-char x [CELL_HEIGHT][CELL_WIDTH] = {
+bool x [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,0,0,1,0},
@@ -470,7 +492,7 @@ char x [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {1,0,0,1,0},
 };
-char y [CELL_HEIGHT][CELL_WIDTH] = {
+bool y [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,0,0,1,0},
@@ -479,7 +501,7 @@ char y [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,1,0},
     {1,1,1,0,0}
 };
-char z [CELL_HEIGHT][CELL_WIDTH] = {
+bool z [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,1,1,1,0},
@@ -492,7 +514,7 @@ char z [CELL_HEIGHT][CELL_WIDTH] = {
 
 
 /*Digits*/
-char ZERO [CELL_HEIGHT][CELL_WIDTH] = {
+bool ZERO [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,1,1},
@@ -501,7 +523,7 @@ char ZERO [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0},
 };
-char ONE [CELL_HEIGHT][CELL_WIDTH] = {
+bool ONE [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,1,1,0,0},
     {0,0,1,0,0},
@@ -510,7 +532,7 @@ char ONE [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,1,1,1,0},
 };
-char TWO [CELL_HEIGHT][CELL_WIDTH] = {
+bool TWO [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {0,0,0,0,1},
@@ -519,7 +541,7 @@ char TWO [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,0,0,0},
     {1,1,1,1,1},
 };
-char THREE [CELL_HEIGHT][CELL_WIDTH] = {
+bool THREE [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {0,0,0,0,1},
@@ -528,7 +550,7 @@ char THREE [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0},
 };
-char FOUR [CELL_HEIGHT][CELL_WIDTH] = {
+bool FOUR [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,1,0},
     {0,0,1,1,0},
     {0,1,0,1,0},
@@ -537,7 +559,7 @@ char FOUR [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,1,0},
     {0,0,0,1,0},
 };
-char FIVE [CELL_HEIGHT][CELL_WIDTH] = {
+bool FIVE [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,1},
     {1,0,0,0,0},
     {1,0,0,0,0},
@@ -546,7 +568,7 @@ char FIVE [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,1},
     {1,1,1,1,0},
 };
-char SIX [CELL_HEIGHT][CELL_WIDTH] = {
+bool SIX [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,0},
@@ -555,7 +577,7 @@ char SIX [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0},
 };
-char SEVEN [CELL_HEIGHT][CELL_WIDTH] = {
+bool SEVEN [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,1},
     {0,0,0,0,1},
     {0,0,0,0,1},
@@ -564,7 +586,7 @@ char SEVEN [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,0,0,0},
     {1,0,0,0,0},
 };
-char EIGHT [CELL_HEIGHT][CELL_WIDTH] = {
+bool EIGHT [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -573,7 +595,7 @@ char EIGHT [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0},
 };
-char NINE [CELL_HEIGHT][CELL_WIDTH] = {
+bool NINE [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -585,7 +607,7 @@ char NINE [CELL_HEIGHT][CELL_WIDTH] = {
 
 
 /*Additional*/
-char SPACE [CELL_HEIGHT][CELL_WIDTH] = {
+bool SPACE [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,0,0,0,0},
@@ -594,7 +616,7 @@ char SPACE [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
 };
-char CURSOR [CELL_HEIGHT][CELL_WIDTH] = {
+bool CURSOR [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,1},
     {1,1,1,1,1},
     {1,1,1,1,1},
@@ -603,7 +625,7 @@ char CURSOR [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,1},
     {1,1,1,1,1},
 };
-char COLON [CELL_HEIGHT][CELL_WIDTH] = {
+bool COLON [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,0,1,0,0},
@@ -612,7 +634,7 @@ char COLON [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
 };
-char PERIOD [CELL_HEIGHT][CELL_WIDTH] = {
+bool PERIOD [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,0,0,0,0},
@@ -621,7 +643,7 @@ char PERIOD [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,1,0,0},
 };
-char LEFT_PAREN [CELL_HEIGHT][CELL_WIDTH] = {
+bool LEFT_PAREN [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,1,0,0,0},
     {0,1,0,0,0},
@@ -630,7 +652,7 @@ char LEFT_PAREN [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,0,0,0},
     {0,0,1,0,0},
 };
-char RIGHT_PAREN [CELL_HEIGHT][CELL_WIDTH] = {
+bool RIGHT_PAREN [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,0,0,1,0},
     {0,0,0,1,0},
@@ -639,7 +661,7 @@ char RIGHT_PAREN [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,1,0},
     {0,0,1,0,0},
 };
-char PLUS [CELL_HEIGHT][CELL_WIDTH] = {
+bool PLUS [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,1,0,0},
     {0,0,1,0,0},
@@ -648,7 +670,7 @@ char PLUS [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,0,0,0,0},
 };
-char MULT [CELL_HEIGHT][CELL_WIDTH] = {
+bool MULT [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {1,0,0,0,1},
     {0,1,0,1,0},
@@ -657,7 +679,7 @@ char MULT [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,0,0,0,0},
 };
-char EQUAL [CELL_HEIGHT][CELL_WIDTH] = {
+bool EQUAL [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,1,1,1,1},
@@ -666,7 +688,7 @@ char EQUAL [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
 };
-char EXCLAM_POINT [CELL_HEIGHT][CELL_WIDTH] = {
+bool EXCLAM_POINT [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,0,1,0,0},
     {0,0,1,0,0},
@@ -675,7 +697,7 @@ char EXCLAM_POINT [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,1,0,0},
 };
-char QUESTION_MARK [CELL_HEIGHT][CELL_WIDTH] = {
+bool QUESTION_MARK [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -684,7 +706,7 @@ char QUESTION_MARK [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,1,0,0},
 };
-char MINUS [CELL_HEIGHT][CELL_WIDTH] = {
+bool MINUS [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,0,0,0,0},
@@ -693,7 +715,7 @@ char MINUS [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
 };
-char PERCENT [CELL_HEIGHT][CELL_WIDTH] = {
+bool PERCENT [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {1,1,0,0,1},
     {1,1,0,1,0},
@@ -702,7 +724,7 @@ char PERCENT [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,1},
     {0,0,0,0,0},
 };
-char COMMA [CELL_HEIGHT][CELL_WIDTH] = {
+bool COMMA [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,0,0,0,0},
@@ -711,7 +733,7 @@ char COMMA [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,1,0,0,0},
 };
-char UNDERSCORE [CELL_HEIGHT][CELL_WIDTH] = {
+bool UNDERSCORE [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,0,0,0,0},
@@ -720,7 +742,7 @@ char UNDERSCORE [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,1,1,1,0},
 };
-char AT_SIGN [CELL_HEIGHT][CELL_WIDTH] = {
+bool AT_SIGN [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,1,1,1},
