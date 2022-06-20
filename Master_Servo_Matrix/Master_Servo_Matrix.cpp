@@ -63,9 +63,17 @@ void setup(){
   // Turn all servos to OFF position
   set_all(OFF_STATE);
 
+  bool msm[CELL_HEIGHT][CELL_WIDTH];
+  get_character_cell('a', msm);
+  for(int i = 0; i < CELL_HEIGHT; i++){
+    for(int j = 0; j < CELL_WIDTH; j++)
+      printf("%d%c",msm[i][j], (i+1==CELL_HEIGHT)?'\n':'_');
+  }
+
 }
 void loop()
 {
+  // 
   // String in;
 
   // while(!Serial.available()){} // Wait for string to be available
@@ -76,7 +84,7 @@ void loop()
   //  - Once Master receives this, then it will send BROADCAST message to all nodes to display message
 
   // TODO: Wait for master to send GO and then display
-
+/*
   char* in; // <- replace with String in or something when on Arduino
   if (!string_to_matrix(in, matrix_l)){
     return; // Restart the loop
@@ -86,7 +94,7 @@ void loop()
 
   // delay(DELAY_BETWEEN_STRINGS_MS); // Set 
   set_all(OFF_STATE);
-  
+  */
 }
 
 
