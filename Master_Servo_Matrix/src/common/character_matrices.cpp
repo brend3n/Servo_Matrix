@@ -11,17 +11,6 @@
 //     {},
 // };
 
-
-// Access array elements through enum
-// enum characters_enum{
-//   ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,
-//   SPACE,CURSOR,COLON,PERIOD,LEFT_PAREN,RIGHT_PAREN,PLUS,
-//   MULT,EQUAL,EXCLAM_POINT,QUESTION_MARK,MINUS,PERCENT,
-//   COMMA,UNDERSCORE,AT_SIGN,
-//   A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,
-//   a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z
-// };
-
 /*Uppercase*/
 bool A_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
@@ -751,12 +740,12 @@ bool characters[][CELL_HEIGHT][CELL_WIDTH] =
 };
 
 // // Array for all character representations
-// bool characters[26+26+26][CELL_HEIGHT][CELL_WIDTH] = 
+// bool characters[][CELL_HEIGHT][CELL_WIDTH] = 
 // {
-//   {ZERO_cell,ONE_cell,TWO_cell,THREE_cell,FOUR_cell,FIVE_cell,SIX_cell,SEVEN_cell,EIGHT_cell,NINE_cell,
+//   ZERO_cell,ONE_cell,TWO_cell,THREE_cell,FOUR_cell,FIVE_cell,SIX_cell,SEVEN_cell,EIGHT_cell,NINE_cell,
 //   SPACE_cell,CURSOR_cell,COLON_cell,PERIOD_cell,LEFT_PAREN_cell,RIGHT_PAREN_cell,PLUS_cell,
 //   MULT_cell,EQUAL_cell,EXCLAM_POINT_cell,QUESTION_MARK_cell,MINUS_cell,PERCENT_cell,
 //   COMMA_cell,UNDERSCORE_cell,AT_SIGN_cell,
 //   A_cell,B_cell,C_cell,D_cell,E_cell,F_cell,G_cell,H_cell,I_cell,J_cell,K_cell,L_cell,M_cell,N_cell,O_cell,P_cell,Q_cell,R_cell,S_cell,T_cell,U_cell,V_cell,W_cell,X_cell,Y_cell,Z_cell,
-//   a_cell,b_cell,c_cell,d_cell,e_cell,f_cell,g_cell,h_cell,i_cell,j_cell,k_cell,l_cell,m_cell,n_cell,o_cell,p_cell,q_cell,r_cell,s_cell,t_cell,u_cell,v_cell,w_cell,x_cell,y_cell,z_cell}
+//   a_cell,b_cell,c_cell,d_cell,e_cell,f_cell,g_cell,h_cell,i_cell,j_cell,k_cell,l_cell,m_cell,n_cell,o_cell,p_cell,q_cell,r_cell,s_cell,t_cell,u_cell,v_cell,w_cell,x_cell,y_cell,z_cell
 // };
