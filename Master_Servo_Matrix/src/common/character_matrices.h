@@ -27,7 +27,7 @@
 // };
 
 /*Uppercase*/
-bool A [CELL_HEIGHT][CELL_WIDTH] = {
+bool A_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -37,7 +37,7 @@ bool A [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1}
 };
 
-bool B [CELL_HEIGHT][CELL_WIDTH] = {
+bool B_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -47,7 +47,7 @@ bool B [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,0}
 };
 
-bool C [CELL_HEIGHT][CELL_WIDTH] = {
+bool C_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,0},
@@ -56,7 +56,7 @@ bool C [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0}
 };
-bool D [CELL_HEIGHT][CELL_WIDTH] = {
+bool D_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -65,7 +65,7 @@ bool D [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,1,1,1,0}
 };
-bool E [CELL_HEIGHT][CELL_WIDTH] = {
+bool E_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,1},
     {1,0,0,0,0},
     {1,0,0,0,0},
@@ -74,7 +74,7 @@ bool E [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,0},
     {1,1,1,1,1}
 };
-bool F [CELL_HEIGHT][CELL_WIDTH] = {
+bool F_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,1},
     {1,0,0,0,0},
     {1,0,0,0,0},
@@ -83,7 +83,7 @@ bool F [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,0},
     {1,0,0,0,0}
 };
-bool G [CELL_HEIGHT][CELL_WIDTH] = {
+bool G_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,0},
@@ -92,7 +92,7 @@ bool G [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0}
 };
-bool H [CELL_HEIGHT][CELL_WIDTH] = {
+bool H_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -101,7 +101,7 @@ bool H [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1}
 };
-bool I [CELL_HEIGHT][CELL_WIDTH] = {
+bool I_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {0,0,1,0,0},
     {0,0,1,0,0},
@@ -110,7 +110,7 @@ bool I [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,1,1,1,0}
 };
-bool J [CELL_HEIGHT][CELL_WIDTH] = {
+bool J_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,1},
     {0,0,0,0,1},
     {0,0,0,0,1},
@@ -119,7 +119,7 @@ bool J [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0}
 };
-bool K [CELL_HEIGHT][CELL_WIDTH] = {
+bool K_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,1,0},
     {1,0,1,0,0},
@@ -128,7 +128,7 @@ bool K [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {1,0,0,0,1}
 };
-bool L [CELL_HEIGHT][CELL_WIDTH] = {
+bool L_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,0},
     {1,0,0,0,0},
     {1,0,0,0,0},
@@ -137,7 +137,7 @@ bool L [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,0},
     {1,1,1,1,1}
 };
-bool M [CELL_HEIGHT][CELL_WIDTH] = {
+bool M_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,1,0,1,1},
     {1,0,1,0,1},
@@ -146,7 +146,7 @@ bool M [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1}
 };
-bool N [CELL_HEIGHT][CELL_WIDTH] = {
+bool N_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1},
     {1,1,0,0,1},
@@ -155,7 +155,7 @@ bool N [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1}
 };
-bool O [CELL_HEIGHT][CELL_WIDTH] = {
+bool O_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -164,7 +164,7 @@ bool O [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0}
 };
-bool P [CELL_HEIGHT][CELL_WIDTH] = {
+bool P_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -173,7 +173,7 @@ bool P [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,0},
     {1,0,0,0,0}
 };
-bool Q [CELL_HEIGHT][CELL_WIDTH] = {
+bool Q_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -182,7 +182,7 @@ bool Q [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,1},
     {0,1,1,1,1}
 };
-bool R [CELL_HEIGHT][CELL_WIDTH] = {
+bool R_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -191,7 +191,7 @@ bool R [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {1,0,0,0,1}
 };
-bool S [CELL_HEIGHT][CELL_WIDTH] = {
+bool S_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,0},
@@ -200,7 +200,7 @@ bool S [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0}
 };
-bool T [CELL_HEIGHT][CELL_WIDTH] = {
+bool T_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,1},
     {0,0,1,0,0},
     {0,0,1,0,0},
@@ -209,7 +209,7 @@ bool T [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,0,1,0,0}
 };
-bool U [CELL_HEIGHT][CELL_WIDTH] = {
+bool U_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -218,7 +218,7 @@ bool U [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0}
 };
-bool V [CELL_HEIGHT][CELL_WIDTH] = {
+bool V_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -227,7 +227,7 @@ bool V [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,0,1,0},
     {0,0,1,0,0}
 };
-bool W [CELL_HEIGHT][CELL_WIDTH] = {
+bool W_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -236,7 +236,7 @@ bool W [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,0,1,1},
     {1,0,0,0,1}
 };
-bool X [CELL_HEIGHT][CELL_WIDTH] = {
+bool X_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1},
     {0,1,0,1,0},
@@ -245,7 +245,7 @@ bool X [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1}
 };
-bool Y [CELL_HEIGHT][CELL_WIDTH] = {
+bool Y_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -254,7 +254,7 @@ bool Y [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,0,1,0,0}
 };
-bool Z [CELL_HEIGHT][CELL_WIDTH] = {
+bool Z_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,1},
     {0,0,0,0,1},
     {0,0,0,1,0},
@@ -265,7 +265,7 @@ bool Z [CELL_HEIGHT][CELL_WIDTH] = {
 };
 
 /*Lowercase*/
-bool a [CELL_HEIGHT][CELL_WIDTH] = {
+bool a_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,1,1,0,0},
@@ -274,7 +274,7 @@ bool a [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {0,1,1,1,0}
 };
-bool b [CELL_HEIGHT][CELL_WIDTH] = {
+bool b_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {1,0,0,0,0},
     {1,0,0,0,0},
@@ -283,7 +283,7 @@ bool b [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {1,1,1,0,0}
 };
-bool c [CELL_HEIGHT][CELL_WIDTH] = {
+bool c_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,1,1,0,0},
@@ -292,7 +292,7 @@ bool c [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {0,1,1,0,0}
 };
-bool d [CELL_HEIGHT][CELL_WIDTH] = {
+bool d_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,1,0},
     {0,0,0,1,0},
@@ -301,7 +301,7 @@ bool d [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {0,1,1,1,0}
 };
-bool e [CELL_HEIGHT][CELL_WIDTH] = {
+bool e_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,1,1,0,0},
@@ -310,7 +310,7 @@ bool e [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,0},
     {0,1,1,1,0}
 };
-bool f [CELL_HEIGHT][CELL_WIDTH] = {
+bool f_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,1,0},
     {0,1,0,0,0},
     {1,1,1,1,0},
@@ -319,7 +319,7 @@ bool f [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,0,0,0},
     {0,1,0,0,0}
 };
-bool g [CELL_HEIGHT][CELL_WIDTH] = {
+bool g_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,1,1,1,0},
     {1,0,0,1,0},
@@ -328,7 +328,7 @@ bool g [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,1,0},
     {1,1,1,0,0}
 };
-bool h [CELL_HEIGHT][CELL_WIDTH] = {
+bool h_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,0},
     {1,0,0,0,0},
     {1,0,0,0,0},
@@ -337,7 +337,7 @@ bool h [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {1,0,0,1,0}
 };
-bool i [CELL_HEIGHT][CELL_WIDTH] = {
+bool i_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,0,0,0,0},
     {0,0,1,0,0},
@@ -346,7 +346,7 @@ bool i [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,0,1,0,0}
 };
-bool j [CELL_HEIGHT][CELL_WIDTH] = {
+bool j_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,1,0},
     {0,0,0,1,0},
@@ -355,7 +355,7 @@ bool j [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {0,1,1,0,0}
 };
-bool k [CELL_HEIGHT][CELL_WIDTH] = {
+bool k_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {1,0,0,0,0},
     {1,0,0,1,0},
@@ -364,7 +364,7 @@ bool k [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {1,0,0,1,0}
 };
-bool l [CELL_HEIGHT][CELL_WIDTH] = {
+bool l_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,0,1,0,0},
     {0,0,1,0,0},
@@ -373,7 +373,7 @@ bool l [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,0,1,0,0}
 };
-bool m [CELL_HEIGHT][CELL_WIDTH] = {
+bool m_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,1,1,1,0},
@@ -382,7 +382,7 @@ bool m [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,1,0,1},
     {1,0,1,0,1}
 };
-bool n [CELL_HEIGHT][CELL_WIDTH] = {
+bool n_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,1,1,0,0},
@@ -391,7 +391,7 @@ bool n [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {1,0,0,1,0}
 };
-bool o [CELL_HEIGHT][CELL_WIDTH] = {
+bool o_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,1,1,0,0},
@@ -400,7 +400,7 @@ bool o [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {0,1,1,0,0}
 };
-bool p [CELL_HEIGHT][CELL_WIDTH] = {
+bool p_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,1,1,0,0},
@@ -409,7 +409,7 @@ bool p [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,0,0},
     {1,0,0,0,0}
 };
-bool q [CELL_HEIGHT][CELL_WIDTH] = {
+bool q_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,0,1,1,1},
@@ -418,7 +418,7 @@ bool q [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,1,1},
     {0,0,0,0,1}
 };
-bool r [CELL_HEIGHT][CELL_WIDTH] = {
+bool r_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,1,1,0,0},
@@ -427,7 +427,7 @@ bool r [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,0},
     {1,0,0,0,0}
 };
-bool s [CELL_HEIGHT][CELL_WIDTH] = {
+bool s_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,1,1,1,0},
@@ -436,7 +436,7 @@ bool s [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,1,0},
     {1,1,1,0,0}
 };
-bool t [CELL_HEIGHT][CELL_WIDTH] = {
+bool t_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,1,0,0,0},
     {1,1,1,1,0},
@@ -445,7 +445,7 @@ bool t [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,0,0,0},
     {0,0,1,1,0}
 };
-bool u [CELL_HEIGHT][CELL_WIDTH] = {
+bool u_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,0,0,1,0},
@@ -454,7 +454,7 @@ bool u [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {0,1,1,1,0}
 };
-bool v [CELL_HEIGHT][CELL_WIDTH] = {
+bool v_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,0,0,0,1},
@@ -463,7 +463,7 @@ bool v [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,0,1,0},
     {0,0,1,0,0}
 };
-bool w [CELL_HEIGHT][CELL_WIDTH] = {
+bool w_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,0,0,0,1},
@@ -472,7 +472,7 @@ bool w [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,1,0,1},
     {0,1,0,1,0}
 };
-bool x [CELL_HEIGHT][CELL_WIDTH] = {
+bool x_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,0,0,1,0},
@@ -481,7 +481,7 @@ bool x [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,0},
     {1,0,0,1,0}
 };
-bool y [CELL_HEIGHT][CELL_WIDTH] = {
+bool y_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,0,0,1,0},
@@ -490,7 +490,7 @@ bool y [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,1,0},
     {1,1,1,0,0}
 };
-bool z [CELL_HEIGHT][CELL_WIDTH] = {
+bool z_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,1,1,1,0},
@@ -503,7 +503,7 @@ bool z [CELL_HEIGHT][CELL_WIDTH] = {
 
 
 /*Digits*/
-bool ZERO [CELL_HEIGHT][CELL_WIDTH] = {
+bool ZERO_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,1,1},
@@ -512,7 +512,7 @@ bool ZERO [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0}
 };
-bool ONE [CELL_HEIGHT][CELL_WIDTH] = {
+bool ONE_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,1,1,0,0},
     {0,0,1,0,0},
@@ -521,7 +521,7 @@ bool ONE [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,1,1,1,0}
 };
-bool TWO [CELL_HEIGHT][CELL_WIDTH] = {
+bool TWO_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {0,0,0,0,1},
@@ -530,7 +530,7 @@ bool TWO [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,0,0,0},
     {1,1,1,1,1}
 };
-bool THREE [CELL_HEIGHT][CELL_WIDTH] = {
+bool THREE_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {0,0,0,0,1},
@@ -539,7 +539,7 @@ bool THREE [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0}
 };
-bool FOUR [CELL_HEIGHT][CELL_WIDTH] = {
+bool FOUR_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,1,0},
     {0,0,1,1,0},
     {0,1,0,1,0},
@@ -548,7 +548,7 @@ bool FOUR [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,1,0},
     {0,0,0,1,0}
 };
-bool FIVE [CELL_HEIGHT][CELL_WIDTH] = {
+bool FIVE_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,1},
     {1,0,0,0,0},
     {1,0,0,0,0},
@@ -557,7 +557,7 @@ bool FIVE [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,1},
     {1,1,1,1,0}
 };
-bool SIX [CELL_HEIGHT][CELL_WIDTH] = {
+bool SIX_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,0},
@@ -566,7 +566,7 @@ bool SIX [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0}
 };
-bool SEVEN [CELL_HEIGHT][CELL_WIDTH] = {
+bool SEVEN_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,1},
     {0,0,0,0,1},
     {0,0,0,0,1},
@@ -575,7 +575,7 @@ bool SEVEN [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,0,0,0},
     {1,0,0,0,0}
 };
-bool EIGHT [CELL_HEIGHT][CELL_WIDTH] = {
+bool EIGHT_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -584,7 +584,7 @@ bool EIGHT [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,1,1,1,0}
 };
-bool NINE [CELL_HEIGHT][CELL_WIDTH] = {
+bool NINE_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -596,7 +596,7 @@ bool NINE [CELL_HEIGHT][CELL_WIDTH] = {
 
 
 /*Additional*/
-bool SPACE [CELL_HEIGHT][CELL_WIDTH] = {
+bool SPACE_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,0,0,0,0},
@@ -605,7 +605,7 @@ bool SPACE [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0}
 };
-bool CURSOR [CELL_HEIGHT][CELL_WIDTH] = {
+bool CURSOR_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,1},
     {1,1,1,1,1},
     {1,1,1,1,1},
@@ -614,7 +614,7 @@ bool CURSOR [CELL_HEIGHT][CELL_WIDTH] = {
     {1,1,1,1,1},
     {1,1,1,1,1}
 };
-bool COLON [CELL_HEIGHT][CELL_WIDTH] = {
+bool COLON_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,0,1,0,0},
@@ -623,7 +623,7 @@ bool COLON [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0}
 };
-bool PERIOD [CELL_HEIGHT][CELL_WIDTH] = {
+bool PERIOD_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,0,0,0,0},
@@ -632,7 +632,7 @@ bool PERIOD [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,1,0,0}
 };
-bool LEFT_PAREN [CELL_HEIGHT][CELL_WIDTH] = {
+bool LEFT_PAREN_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,1,0,0,0},
     {0,1,0,0,0},
@@ -641,7 +641,7 @@ bool LEFT_PAREN [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,0,0,0},
     {0,0,1,0,0}
 };
-bool RIGHT_PAREN [CELL_HEIGHT][CELL_WIDTH] = {
+bool RIGHT_PAREN_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,0,0,1,0},
     {0,0,0,1,0},
@@ -650,7 +650,7 @@ bool RIGHT_PAREN [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,1,0},
     {0,0,1,0,0}
 };
-bool PLUS [CELL_HEIGHT][CELL_WIDTH] = {
+bool PLUS_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,1,0,0},
     {0,0,1,0,0},
@@ -659,7 +659,7 @@ bool PLUS [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,0,0,0,0}
 };
-bool MULT [CELL_HEIGHT][CELL_WIDTH] = {
+bool MULT_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {1,0,0,0,1},
     {0,1,0,1,0},
@@ -668,7 +668,7 @@ bool MULT [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,0,1},
     {0,0,0,0,0}
 };
-bool EQUAL [CELL_HEIGHT][CELL_WIDTH] = {
+bool EQUAL_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {1,1,1,1,1},
@@ -677,7 +677,7 @@ bool EQUAL [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0}
 };
-bool EXCLAM_POINT [CELL_HEIGHT][CELL_WIDTH] = {
+bool EXCLAM_POINT_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,0,1,0,0},
     {0,0,1,0,0},
@@ -686,7 +686,7 @@ bool EXCLAM_POINT [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,1,0,0}
 };
-bool QUESTION_MARK [CELL_HEIGHT][CELL_WIDTH] = {
+bool QUESTION_MARK_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,0,0,1},
@@ -695,7 +695,7 @@ bool QUESTION_MARK [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,1,0,0}
 };
-bool MINUS [CELL_HEIGHT][CELL_WIDTH] = {
+bool MINUS_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,0,0,0,0},
@@ -704,7 +704,7 @@ bool MINUS [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0}
 };
-bool PERCENT [CELL_HEIGHT][CELL_WIDTH] = {
+bool PERCENT_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {1,1,0,0,1},
     {1,1,0,1,0},
@@ -713,7 +713,7 @@ bool PERCENT [CELL_HEIGHT][CELL_WIDTH] = {
     {1,0,0,1,1},
     {0,0,0,0,0}
 };
-bool COMMA [CELL_HEIGHT][CELL_WIDTH] = {
+bool COMMA_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,0,0,0,0},
@@ -722,7 +722,7 @@ bool COMMA [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,1,0,0},
     {0,1,0,0,0}
 };
-bool UNDERSCORE [CELL_HEIGHT][CELL_WIDTH] = {
+bool UNDERSCORE_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,0,0,0,0},
     {0,0,0,0,0},
@@ -731,7 +731,7 @@ bool UNDERSCORE [CELL_HEIGHT][CELL_WIDTH] = {
     {0,0,0,0,0},
     {0,1,1,1,0}
 };
-bool AT_SIGN [CELL_HEIGHT][CELL_WIDTH] = {
+bool AT_SIGN_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},
     {1,0,0,0,1},
     {1,0,1,1,1},
@@ -743,15 +743,26 @@ bool AT_SIGN [CELL_HEIGHT][CELL_WIDTH] = {
 
 
 
+// // Array for all character representations
+// bool characters[][CELL_HEIGHT][CELL_WIDTH] = 
+// {
+//   {ZERO_cell},{ONE_cell},{TWO_cell},{THREE_cell},{FOUR_cell},{FIVE_cell},{SIX_cell},{SEVEN_cell},{EIGHT_cell},{NINE_cell},
+//   {SPACE_cell},{CURSOR_cell},{COLON_cell},{PERIOD_cell},{LEFT_PAREN_cell},{RIGHT_PAREN_cell},{PLUS_cell},
+//   {MULT_cell},{EQUAL_cell},{EXCLAM_POINT_cell},{QUESTION_MARK_cell},{MINUS_cell},{PERCENT_cell},
+//   {COMMA_cell},{UNDERSCORE_cell},{AT_SIGN_cell},
+//   {A_cell},{B_cell},{C_cell},{D_cell},{E_cell},{F_cell},{G_cell},{H_cell},{I_cell},{J_cell},{K_cell},{L_cell},{M_cell},{N_cell},{O_cell},{P_cell},{Q_cell},{R_cell},{S_cell},{T_cell},{U_cell},{V_cell},{W_cell},{X_cell},{Y_cell},{Z_cell},
+//   {a_cell},{b_cell},{c_cell},{d_cell},{e_cell},{f_cell},{g_cell},{h_cell},{i_cell},{j_cell},{k_cell},{l_cell},{m_cell},{n_cell},{o_cell},{p_cell},{q_cell},{r_cell},{s_cell},{t_cell},{u_cell},{v_cell},{w_cell},{x_cell},{y_cell},{z_cell}
+// };
+
 // Array for all character representations
 bool characters[][CELL_HEIGHT][CELL_WIDTH] = 
 {
-  {ZERO},{ONE},{TWO},{THREE},{FOUR},{FIVE},{SIX},{SEVEN},{EIGHT},{NINE},
-  {SPACE},{CURSOR},{COLON},{PERIOD},{LEFT_PAREN},{RIGHT_PAREN},{PLUS},
-  {MULT},{EQUAL},{EXCLAM_POINT},{QUESTION_MARK},{MINUS},{PERCENT},
-  {COMMA},{UNDERSCORE},{AT_SIGN},
-  {A},{B},{C},{D},{E},{F},{G},{H},{I},{J},{K},{L},{M},{N},{O},{P},{Q},{R},{S},{T},{U},{V},{W},{X},{Y},{Z},
-  {a},{b},{c},{d},{e},{f},{g},{h},{i},{j},{k},{l},{m},{n},{o},{p},{q},{r},{s},{t},{u},{v},{w},{x},{y},{z}
+  ZERO_cell,ONE_cell,TWO_cell,THREE_cell,FOUR_cell,FIVE_cell,SIX_cell,SEVEN_cell,EIGHT_cell,NINE_cell,
+  SPACE_cell,CURSOR_cell,COLON_cell,PERIOD_cell,LEFT_PAREN_cell,RIGHT_PAREN_cell,PLUS_cell,
+  MULT_cell,EQUAL_cell,EXCLAM_POINT_cell,QUESTION_MARK_cell,MINUS_cell,PERCENT_cell,
+  COMMA_cell,UNDERSCORE_cell,AT_SIGN_cell,
+  A_cell,B_cell,C_cell,D_cell,E_cell,F_cell,G_cell,H_cell,I_cell,J_cell,K_cell,L_cell,M_cell,N_cell,O_cell,P_cell,Q_cell,R_cell,S_cell,T_cell,U_cell,V_cell,W_cell,X_cell,Y_cell,Z_cell,
+  a_cell,b_cell,c_cell,d_cell,e_cell,f_cell,g_cell,h_cell,i_cell,j_cell,k_cell,l_cell,m_cell,n_cell,o_cell,p_cell,q_cell,r_cell,s_cell,t_cell,u_cell,v_cell,w_cell,x_cell,y_cell,z_cell
 };
 
 #endif

@@ -15,5 +15,6 @@
         "cstdbool": "cpp",
         "cstdint": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
 }

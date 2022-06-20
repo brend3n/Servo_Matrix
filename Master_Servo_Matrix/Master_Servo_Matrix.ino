@@ -6,7 +6,7 @@
 #define MODULE_ID 0
 
 // Global matrix for display on a single board
-bool matrix[NUM_ROWS][NUM_COLS];
+bool matrix [NUM_ROWS][NUM_COLS];
 
 // Function pointers to control each servo in the matrix
 struct matrix_element matrix_ops[NUM_ROWS][NUM_COLS];
@@ -77,7 +77,8 @@ void loop()
 
   // TODO: Wait for master to send GO and then display
 
-  if (!string_to_matrix(in, matrix)){
+  /*
+  if (!string_to_matrix(in, &matrix_ptr)){
     return; // Restart the loop
   }
 
@@ -85,5 +86,5 @@ void loop()
 
   delay(DELAY_BETWEEN_STRINGS_MS); // Set 
   set_all(OFF_STATE);
-
+  */
 }
