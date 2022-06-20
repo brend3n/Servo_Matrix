@@ -1,8 +1,5 @@
 #include "common_code.h"
 
-// Character matrix arrays
-extern bool characters [][CELL_HEIGHT][CELL_WIDTH];
-
 // Sets all of the pins either on or off
 // Params: state: pass in either ON or OFF
 void set_all(uint8_t state)
@@ -11,7 +8,7 @@ void set_all(uint8_t state)
   {
     for(uint8_t j = 0; j < 16; j++)
     {
-      boards[i].setPin(j, state, false);
+      // boards[i].setPin(j, state, false);
     }
   }
 }
@@ -19,7 +16,7 @@ void set_all(uint8_t state)
 // Writes a state (ON or OFF) to a pin on a given board
 void write_element(uint8_t board_index, uint8_t pin, uint8_t state)
 {
-  boards[board_index].setPin(pin,state,false);
+  // boards[board_index].setPin(pin,state,false);
 }
 
 // Sets up function pointer 3d array
@@ -49,7 +46,8 @@ void init_fp_matrix()
 // Sets the passed in matrix cell to the desired character.
 void get_character_cell(char ch, bool** cell)
 {
-  /*Characters*/
+  /*
+  // Characters
   if(ch == 'a') memcpy(cell,a_cell,sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
   else if(ch == 'b') memcpy(cell,b_cell,sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
   else if(ch == 'c') memcpy(cell,c_cell,sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
@@ -103,7 +101,7 @@ void get_character_cell(char ch, bool** cell)
   else if(ch == 'Y') memcpy(cell,Y_cell,sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
   else if(ch == 'Z') memcpy(cell,Z_cell,sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
 
-  /*Digits*/
+  // Digits
   else if(ch == '0') memcpy(cell,ZERO_cell,sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
   else if(ch == '1') memcpy(cell,ONE_cell,sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
   else if(ch == '2') memcpy(cell,TWO_cell,sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
@@ -115,7 +113,7 @@ void get_character_cell(char ch, bool** cell)
   else if(ch == '8') memcpy(cell,EIGHT_cell,sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
   else if(ch == '9') memcpy(cell,NINE_cell,sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
 
-  /*Additional characters*/
+  // Additional characters
   else if(ch == ' ') memcpy(cell,SPACE_cell,sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
   else if(ch == ':') memcpy(cell,COLON_cell,sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
   else if(ch == '.') memcpy(cell,PERIOD_cell,sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
@@ -132,7 +130,7 @@ void get_character_cell(char ch, bool** cell)
   else if(ch == '_') memcpy(cell,UNDERSCORE_cell,sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
   else if(ch == '@') memcpy(cell,AT_SIGN_cell,sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
   else memcpy(cell,CURSOR_cell,sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
-
+ */
 }
 
 // Return true if char can fit in matrix, otherwise return false
@@ -145,6 +143,7 @@ bool append_char_to_matrix(char c, bool** matrix)
   get_character_cell(c, cell);
   // TODO: Append character cell into matrix
 
+  return true;
 }
 
 // Params:
@@ -153,7 +152,7 @@ bool append_char_to_matrix(char c, bool** matrix)
 // Returns:
 //        true <- if string can fit
 //        false <- if string cannot fit
-bool string_to_matrix(String str, bool** matrix){
+bool string_to_matrix(char* str, bool** matrix){
   /**
    * TODO:
    *
@@ -162,8 +161,9 @@ bool string_to_matrix(String str, bool** matrix){
 
   // TODO: At somepoint it would be cool to implement scrolling text
   // Just keep appending chars to matrix and return that matrix. Then
-  for(char c : str){
-    if(!append_char_to_matrix(c,matrix))
+  uint8_t str_l = strlen(str);
+  for(uint8_t i = 0; i < str_l; i++){
+    if(!append_char_to_matrix(str[i],matrix))
       return false;
   }
   return true;

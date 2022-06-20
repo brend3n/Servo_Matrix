@@ -30,14 +30,14 @@ bool get_matrix_to_display()
     // Wait for CAN or ESP-NOW message from master
       // - Message should contain matrix of size [NUM_ROWS][NUM_COLS]
     // Save Matrix in matrix (global)
-    return;
+    return true;
 }
 
 
-
 void setup(){
+/*
 
-  Serial.begin(9600);
+  // Serial.begin(9600);
 
   // Setting all of the addresses
   for (uint8_t i = 0;i < NUM_BOARDS; i++)
@@ -62,15 +62,15 @@ void setup(){
 
   // Turn all servos to OFF position
   set_all(OFF_STATE);
+*/
 }
-
 void loop()
 {
-  String in;
+  // String in;
 
-  while(!Serial.available()){} // Wait for string to be available
+  // while(!Serial.available()){} // Wait for string to be available
 
-  in = Serial.readString();
+  // in = Serial.readString();
 
   // TODO: send response to master saying its ready
   //  - Once Master receives this, then it will send BROADCAST message to all nodes to display message
@@ -87,4 +87,11 @@ void loop()
   delay(DELAY_BETWEEN_STRINGS_MS); // Set 
   set_all(OFF_STATE);
   */
+}
+
+
+int main(){
+  setup();
+  while(true){loop();}
+  return 0;
 }

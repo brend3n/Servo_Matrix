@@ -14,7 +14,8 @@
         "*.tcc": "cpp",
         "cstdbool": "cpp",
         "cstdint": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "string": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
