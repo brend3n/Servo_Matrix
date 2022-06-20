@@ -14,7 +14,7 @@
 
 // Hardware libraries
 #include "Wire.h"
-#include "Adafruit_PwmServoDriver.h"
+#include <Adafruit_PWMServoDriver.h>
 #include "Arduino.h"
 
 
@@ -36,7 +36,7 @@
 struct matrix_element
 {
     uint8_t pin; // Pin on the driver
-    Adafruit_PwmServoDriver driver_num; // Driver id
+    uint8_t driver_num; // Driver id
 };
 
 // Typedef for function pointers
@@ -62,13 +62,14 @@ void get_character_cell(char ch, bool(&m)[CELL_HEIGHT][CELL_WIDTH]);
 // Returns:
 //        true <- if string can fit
 //        false <- if string cannot fit
-bool string_to_matrix(String str, bool (&matrix)[NUM_ROWS][NUM_COLS]);
+bool string_to_matrix(String str, bool *matrix[NUM_ROWS][NUM_COLS]);
 
 // Show matrix
 void display();
 
-
-extern Adafruit_PwmServoDriver boards[NUM_BOARDS];
+// extern bool characters[][CELL_HEIGHT][CELL_WIDTH];
+extern Adafruit_PWMServoDriver boards[NUM_BOARDS];
 extern bool matrix[NUM_ROWS][NUM_COLS];
 extern struct matrix_element matrix_ops[NUM_ROWS][NUM_COLS]; // This will change with new struct array
 #endif
+

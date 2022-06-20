@@ -1,7 +1,19 @@
 {
-    "C_Cpp.errorSquiggles": "Enabled",
     "files.associations": {
-        "locale": "cpp",
-        "__locale": "cpp"
+        "cctype": "cpp",
+        "cmath": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "cstdarg": "cpp",
+        "cstdio": "cpp",
+        "cstdlib": "cpp",
+        "exception": "cpp",
+        "type_traits": "cpp",
+        "limits": "cpp",
+        "new": "cpp",
+        "*.tcc": "cpp",
+        "cstdbool": "cpp",
+        "cstdint": "cpp",
+        "typeinfo": "cpp"
     }
 }

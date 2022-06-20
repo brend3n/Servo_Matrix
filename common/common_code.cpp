@@ -1,3 +1,4 @@
+
 #include "common_code.h"
 
 // Character matrix arrays
@@ -38,11 +39,11 @@ void init_fp_matrix()
         col = 0;
         row++;
       }
-      
+
       matrix_ops[row][col].pin = j;
       matrix_ops[row][col].driver_num = i;
       col++;   // Go to next position to fill
-    } 
+    }
   }
 }
 
@@ -114,7 +115,7 @@ void get_character_cell(char ch, bool(&m)[CELL_HEIGHT][CELL_WIDTH])
   else if(ch == '7') memcpy(m,SEVEN,sizeof(m));
   else if(ch == '8') memcpy(m,EIGHT,sizeof(m));
   else if(ch == '9') memcpy(m,NINE,sizeof(m));
- 
+
   /*Additional characters*/
   else if(ch == ' ') memcpy(m,SPACE,sizeof(m));
   else if(ch == ':') memcpy(m,COLON,sizeof(m));
@@ -144,10 +145,10 @@ bool append_char_to_matrix(char c, bool(&matrix)[NUM_ROWS][NUM_COLS])
   bool cell[CELL_HEIGHT][CELL_WIDTH];
   get_character_cell(c, cell);
   // TODO: Append character cell into matrix
-  
+
 }
 
-// Params: 
+// Params:
 //        str <- string to print
 //        matrix <- reference to matrix to fill
 // Returns:
@@ -156,12 +157,12 @@ bool append_char_to_matrix(char c, bool(&matrix)[NUM_ROWS][NUM_COLS])
 bool string_to_matrix(String str, bool (&matrix)[NUM_ROWS][NUM_COLS]){
   /**
    * TODO:
-   * 
+   *
    * Figure out spaces between words/letters/etc.
    */
 
   // TODO: At somepoint it would be cool to implement scrolling text
-  // Just keep appending chars to matrix and return that matrix. Then 
+  // Just keep appending chars to matrix and return that matrix. Then
   for(char c : str){
     if(!append_char_to_matrix(c,matrix))
       return false;
@@ -179,7 +180,7 @@ void display(){
         write_element(matrix_ops[i][j].driver_num, matrix_ops[i][j].pin, ON);
       else
         continue;
-      
-    } 
-  } 
+
+    }
+  }
 }
