@@ -175,7 +175,7 @@ void display(){
     for(uint8_t j = 0; j < NUM_COLS; j++)
     {
       // Display if there is something
-      if(matrix[i][j])
+      if(matrix_l[i][j])
         write_element(matrix_ops[i][j].driver_num, matrix_ops[i][j].pin, ON);
       else
         continue;
