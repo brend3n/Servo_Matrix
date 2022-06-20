@@ -54,7 +54,7 @@ void init_fp_matrix()
 }
 
 // Sets the passed in matrix cell to the desired character.
-void get_character_cell(char ch, bool** cell)
+void get_character_cell(char ch, bool (&cell)[CELL_HEIGHT][CELL_WIDTH])
 {
   
   // Characters
@@ -227,11 +227,11 @@ void get_character_cell(char ch, bool** cell)
 
 // Return true if char can fit in matrix, otherwise return false
 // Also, append the char to the matrix
-bool append_char_to_matrix(char c, bool** matrix)
+bool append_char_to_matrix(char c, bool (&matrix)[NUM_ROWS][NUM_COLS])
 {
   // if c is a space, how many spaces (columns) to pad with
   // Ignore newline character
-  bool** cell;
+  bool cell[CELL_HEIGHT][CELL_WIDTH];
   get_character_cell(c, cell);
   // TODO: Append character cell into matrix
 
@@ -244,7 +244,7 @@ bool append_char_to_matrix(char c, bool** matrix)
 // Returns:
 //        true <- if string can fit
 //        false <- if string cannot fit
-bool string_to_matrix(char* str, bool** matrix){
+bool string_to_matrix(char* str, bool (&matrix)[NUM_ROWS][NUM_COLS]){
   /**
    * TODO:
    *

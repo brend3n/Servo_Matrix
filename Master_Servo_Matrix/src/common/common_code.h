@@ -53,11 +53,11 @@ void write_element(uint8_t board_index, uint8_t pin, uint8_t state);
 void init_fp_matrix();
 
 // Sets the passed in matrix cell to the desired character.
-void get_character_cell(char ch, bool** matrix);
+void get_character_cell(char ch, bool (&cell)[CELL_HEIGHT][CELL_WIDTH]);
 
 // Return true if char can fit in matrix, otherwise return false
 // Also, append the char to the matrix
-bool append_char_to_matrix(char c, bool** matrix);
+bool append_char_to_matrix(char c, bool (&matrix)[NUM_ROWS][NUM_COLS]);
 
 // Params: 
 //        str <- string to print
@@ -65,7 +65,7 @@ bool append_char_to_matrix(char c, bool** matrix);
 // Returns:
 //        true <- if string can fit
 //        false <- if string cannot fit
-bool string_to_matrix(char* str, bool** matrix);
+bool string_to_matrix(char* str, bool (&matrix)[NUM_ROWS][NUM_COLS]);
 
 // Show matrix
 void display();

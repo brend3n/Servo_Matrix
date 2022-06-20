@@ -35,7 +35,7 @@ bool get_matrix_to_display()
 
 
 void setup(){
-/*
+
 
   // Serial.begin(9600);
 
@@ -49,11 +49,11 @@ void setup(){
   for(uint8_t i = 0;i < NUM_BOARDS; i++)
   {
     // Call constructor
-    boards[i] = Adafruit_PWMServoDriver(addresses[i]);
+    // boards[i] = Adafruit_PWMServoDriver(addresses[i]);
 
     // Setup board class for Pwm Servo Driver
-    boards[i].begin();
-    boards[i].setPWMFreq(PWM_FREQ);  // I think this value needs to be set better
+    // boards[i].begin();
+    // boards[i].setPWMFreq(PWM_FREQ);  // I think this value needs to be set better
     
   }
   
@@ -62,7 +62,7 @@ void setup(){
 
   // Turn all servos to OFF position
   set_all(OFF_STATE);
-*/
+
 }
 void loop()
 {
@@ -77,16 +77,16 @@ void loop()
 
   // TODO: Wait for master to send GO and then display
 
-  /*
-  if (!string_to_matrix(in, &matrix_ptr)){
+  char* in; // <- replace with String in or something when on Arduino
+  if (!string_to_matrix(in, matrix_l)){
     return; // Restart the loop
   }
 
   display();
 
-  delay(DELAY_BETWEEN_STRINGS_MS); // Set 
+  // delay(DELAY_BETWEEN_STRINGS_MS); // Set 
   set_all(OFF_STATE);
-  */
+  
 }
 
 
