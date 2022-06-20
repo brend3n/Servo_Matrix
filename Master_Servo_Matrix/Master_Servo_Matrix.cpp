@@ -67,7 +67,8 @@ void setup(){
   get_character_cell('a', msm);
   for(int i = 0; i < CELL_HEIGHT; i++){
     for(int j = 0; j < CELL_WIDTH; j++)
-      printf("%d%c",msm[i][j], (i+1==CELL_HEIGHT)?'\n':'_');
+      printf("%d",msm[i][j]);
+    printf("\n");
   }
 
 }
