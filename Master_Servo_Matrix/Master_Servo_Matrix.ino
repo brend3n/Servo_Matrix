@@ -4,6 +4,7 @@
 
 // TODO: set this for each module
 #define MODULE_ID 0
+bool all_matrices [NUM_MODULES][NUM_ROWS][NUM_COLS];
 
 // Global matrix for display on a single board
 bool matrix_l [NUM_ROWS][NUM_COLS];
@@ -37,7 +38,7 @@ bool get_matrix_to_display()
 void setup(){
 
 
-  // Serial.begin(9600);
+  Serial.begin(9600);
 
   // Setting all of the addresses
   for (uint8_t i = 0;i < NUM_BOARDS; i++)
@@ -49,11 +50,11 @@ void setup(){
   for(uint8_t i = 0;i < NUM_BOARDS; i++)
   {
     // Call constructor
-    // boards[i] = Adafruit_PWMServoDriver(addresses[i]);
+    boards[i] = Adafruit_PWMServoDriver(addresses[i]);
 
     // Setup board class for Pwm Servo Driver
-    // boards[i].begin();
-    // boards[i].setPWMFreq(PWM_FREQ);  // I think this value needs to be set better
+    boards[i].begin();
+    boards[i].setPWMFreq(PWM_FREQ);  // I think this value needs to be set better
     
   }
   
@@ -63,44 +64,44 @@ void setup(){
   // Turn all servos to OFF position
   set_all(OFF_STATE);
 
-  bool msm[CELL_HEIGHT][CELL_WIDTH];
-  get_character_cell('a', msm);
-  for(int i = 0; i < CELL_HEIGHT; i++){
-    for(int j = 0; j < CELL_WIDTH; j++)
-      printf("%d",msm[i][j]);
-    printf("\n");
-  }
-
 }
 void loop()
 {
-  // 
-  // String in;
 
-  // while(!Serial.available()){} // Wait for string to be available
+  char* in;
+  String in_str;
+  Serial.print("Enter string to display: ");
+  while(!Serial.available()){} // Wait for string to be available
 
-  // in = Serial.readString();
+  in_str = Serial.readString();
+  in_str.toCharArray(in,in_str.length());
+  Serial.println("Printing: " + in_str);
 
+  Serial.println("Processing string");
+
+  // Make matrix for each module to display
+  if (!string_to_matrix(in, all_matrices)){
+    return; // Restart the loop
+  }
+
+  // send_out_matrices_to_modules();
   // TODO: send response to master saying its ready
   //  - Once Master receives this, then it will send BROADCAST message to all nodes to display message
 
   // TODO: Wait for master to send GO and then display
-/*
-  char* in; // <- replace with String in or something when on Arduino
-  if (!string_to_matrix(in, matrix_l)){
-    return; // Restart the loop
-  }
 
+
+  Serial.println("Displaying string:");
   display();
-
-  // delay(DELAY_BETWEEN_STRINGS_MS); // Set 
+  
+  delay(DELAY_BETWEEN_STRINGS_MS); // Set 
   set_all(OFF_STATE);
-  */
+  
 }
 
 
-int main(){
-  setup();
-  while(true){loop();}
-  return 0;
-}
+// int main(){
+//   setup();
+//   while(true){loop();}
+//   return 0;
+// }
