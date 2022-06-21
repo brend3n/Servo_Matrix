@@ -153,6 +153,7 @@ void zero_out_matrix(bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS])
 void copy_column(bool (&dest)[NUM_MODULES][NUM_ROWS][NUM_COLS], bool (&src)[CELL_HEIGHT][CELL_WIDTH], int column_index, int starting_row, int num_module){
   // Copy a single column from src array to destination array. 
   // Copy the column from src and put it in dest starting at the starting row in dest array
+  printf("Curr column: %d", column_index);
   for(int i = 0; i < CELL_HEIGHT; i++){
     if((starting_row+i) > (NUM_ROWS-1))
       break;
@@ -172,7 +173,17 @@ bool append_char_to_matrix(char c, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COL
 
   get_character_cell(c, cell);
 
-  copy_column(matrix, cell, 0, NUM_ROWS-CELL_HEIGHT, 0);
+  for(int i = 0; i < CELL_WIDTH; i++){
+    copy_column(matrix, cell, current_col++, NUM_ROWS-CELL_HEIGHT, curr_module);
+  }
+
+  printf("Matrix print to checkt\n");
+  for(int i = 0; i < NUM_ROWS;i++){
+    for(int j = 0; j < NUM_COLS; j++){
+      printf("%d",matrix[curr_module][i][j]);
+    }
+    printf("\n");
+  }
   
   // for(int i = 0; i < CELL_WIDTH; i++){
   //   for(int j = 0; j < CELL_HEIGHT; j++){
