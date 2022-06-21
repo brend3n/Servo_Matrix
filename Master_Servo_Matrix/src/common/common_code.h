@@ -13,8 +13,8 @@
 
 
 // Hardware libraries
-#include "Wire.h"
-#include <Adafruit_PWMServoDriver.h>
+// #include "Wire.h"
+// #include <Adafruit_PWMServoDriver.h>
 
 
 
@@ -70,7 +70,7 @@ bool string_to_matrix(char* str, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS]
 // Show matrix
 void display();
 
-extern Adafruit_PWMServoDriver boards[NUM_BOARDS];
+// extern Adafruit_PWMServoDriver boards[NUM_BOARDS];
 extern bool matrix_l[NUM_ROWS][NUM_COLS];
 extern struct matrix_element matrix_ops[NUM_ROWS][NUM_COLS]; // This will change with new struct array
 

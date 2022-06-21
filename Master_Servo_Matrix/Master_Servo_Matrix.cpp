@@ -68,10 +68,24 @@ void setup(){
 void loop()
 {
 
-  char* in;
-  char in
+  // char* in;
+  char in[1024];
   printf("Enter a string: ");
   scanf("%s", in);
+
+  for(int i = 0; i < 10; i++){
+    bool cell [CELL_HEIGHT][CELL_WIDTH];
+    get_character_cell(in[i], cell);
+
+    for(int i = 0; i < CELL_HEIGHT;i++){
+      for(int j = 0; j < CELL_WIDTH; j++){
+        printf("%d",cell[i][j]);
+      }
+      printf("\n");
+    }
+    printf("\n");
+  }
+/*
   // String in_str;
   // Serial.print("Enter string to display: ");
   // while(!Serial.available()){} // Wait for string to be available
@@ -111,7 +125,7 @@ void loop()
     }
     printf("\n");
   }
-  
+*/  
 }
 
 

@@ -18,7 +18,7 @@ void set_all(uint8_t state)
   {
     for(uint8_t j = 0; j < 16; j++)
     {
-      boards[i].setPin(j, state, false);
+      // boards[i].setPin(j, state, false);
     }
   }
 }
@@ -26,7 +26,7 @@ void set_all(uint8_t state)
 // Writes a state (ON or OFF) to a pin on a given board
 void write_element(uint8_t board_index, uint8_t pin, uint8_t state)
 {
-  boards[board_index].setPin(pin,state,false);
+  // boards[board_index].setPin(pin,state,false);
 }
 
 // Sets up function pointer 3d array
@@ -156,18 +156,28 @@ bool append_char_to_matrix(char c, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COL
   static int current_col = 0;
   // static int current_row = 0;
 
+  printf("sdf");
   for(int i = 0; i < CELL_WIDTH; i++)
   {
     for(int j = 0;j < CELL_HEIGHT; j++)
     {
+      // Ran out of space
+      if(current_col+j > (NUM_MODULES*NUM_COLS))
+      {
+        printf("OVERFLOW\n");
+        return false;
+      }
       // If hit the end of module, go to the next one 
       if(current_col+j == (NUM_COLS-1))
         curr_module++;
-        
+
       matrix[curr_module][current_col+j][i] = cell[j][i];
     }
     current_col++;
   }
+
+  // Put a space between each character
+  current_col++;
   return true;
 }
 
@@ -188,8 +198,10 @@ bool string_to_matrix(char* str, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS]
   // Just keep appending chars to matrix and return that matrix. Then
   uint8_t str_l = strlen(str);
   for(uint8_t i = 0; i < str_l; i++){
-    if(!append_char_to_matrix(str[i],matrix))
+    if(!append_char_to_matrix(str[i],matrix)){
+      printf("\nReturning false from append_char_to_matrix\n");
       return false;
+    }
   }
   return true;
 }
