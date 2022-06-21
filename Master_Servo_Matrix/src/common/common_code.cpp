@@ -150,6 +150,17 @@ void zero_out_matrix(bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS])
   }
 }
 
+void copy_column(bool (&dest)[NUM_MODULES][NUM_ROWS][NUM_COLS], bool (&src)[CELL_HEIGHT][CELL_WIDTH], int column_index, int starting_row, int num_module){
+  // Copy a single column from src array to destination array. 
+  // Copy the column from src and put it in dest starting at the starting row in dest array
+  for(int i = 0; i < CELL_HEIGHT; i++){
+    if((starting_row+i) > (NUM_ROWS-1))
+      break;
+    dest[num_module][i+starting_row][column_index] = src[i][column_index];
+    printf("i: %d  dest: %d  src: %d\n",i,dest[num_module][i+starting_row][column_index], src[i][column_index]);
+  }
+}
+
 // Return true if char can fit in matrix, otherwise return false
 // Also, append the char to the matrix
 bool append_char_to_matrix(char c, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS])
@@ -160,21 +171,23 @@ bool append_char_to_matrix(char c, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COL
   bool cell[CELL_HEIGHT][CELL_WIDTH];
 
   get_character_cell(c, cell);
-  
-  for(int i = 0; i < CELL_WIDTH; i++){
-    for(int j = 0; j < CELL_HEIGHT; j++){
 
-      // End of module
-      if(current_col >= NUM_COLS - 1){
-        // Start writing at next module
-        printf("Start writing in next module.\n");
-        curr_module++;
-        current_col = 0; 
-      }
-      matrix[curr_module][j+(NUM_ROWS-CELL_HEIGHT)][i] = cell[j][i];
-    }
-    current_col++;
-  }
+  copy_column(matrix, cell, 0, NUM_ROWS-CELL_HEIGHT, 0);
+  
+  // for(int i = 0; i < CELL_WIDTH; i++){
+  //   for(int j = 0; j < CELL_HEIGHT; j++){
+
+  //     // End of module
+  //     if(current_col >= NUM_COLS - 1){
+  //       // Start writing at next module
+  //       printf("Start writing in next module.\n");
+  //       curr_module++;
+  //       current_col = 0; 
+  //     }
+  //     matrix[curr_module][j+(NUM_ROWS-CELL_HEIGHT)][i] = cell[j][i];
+  //   }
+  //   current_col++;
+  // }
   
 
 
