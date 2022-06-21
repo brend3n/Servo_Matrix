@@ -139,45 +139,45 @@ void get_character_cell(char ch, bool (&cell)[CELL_HEIGHT][CELL_WIDTH])
  
 }
 
+void zero_out_matrix(bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS])
+{
+  for(int i = 0; i < NUM_MODULES; i++){
+    for(int j = 0; j < NUM_ROWS; j++){
+      for(int k = 0; k < NUM_COLS; k++){
+        matrix[i][j][k] = 0;
+      }
+    }
+  }
+}
+
 // Return true if char can fit in matrix, otherwise return false
 // Also, append the char to the matrix
 bool append_char_to_matrix(char c, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS])
 {
-  // if c is a space, how many spaces (columns) to pad with
-  // Ignore newline character
-  bool cell[CELL_HEIGHT][CELL_WIDTH];
-  get_character_cell(c, cell);
-
-  // TODO: Append character cell into matrix
-  // Tightly pack character matrices into matrix vertical line at a time
-  // One space(vertical strip of OFF) between letters for now
-  // three spaces(vertical strips of OFF) between words.
   static int curr_module = 0;
   static int current_col = 0;
-  // static int current_row = 0;
 
-  printf("sdf");
-  for(int i = 0; i < CELL_WIDTH; i++)
-  {
-    for(int j = 0;j < CELL_HEIGHT; j++)
-    {
-      // Ran out of space
-      if(current_col+j > (NUM_MODULES*NUM_COLS))
-      {
-        printf("OVERFLOW\n");
-        return false;
-      }
-      // If hit the end of module, go to the next one 
-      if(current_col+j == (NUM_COLS-1))
+  bool cell[CELL_HEIGHT][CELL_WIDTH];
+
+  get_character_cell(c, cell);
+  
+  for(int i = 0; i < CELL_WIDTH; i++){
+    for(int j = 0; j < CELL_HEIGHT; j++){
+
+      // End of module
+      if(current_col >= NUM_COLS - 1){
+        // Start writing at next module
+        printf("Start writing in next module.\n");
         curr_module++;
-
-      matrix[curr_module][current_col+j][i] = cell[j][i];
+        current_col = 0; 
+      }
+      matrix[curr_module][j+(NUM_ROWS-CELL_HEIGHT)][i] = cell[j][i];
     }
     current_col++;
   }
+  
 
-  // Put a space between each character
-  current_col++;
+
   return true;
 }
 
@@ -198,6 +198,13 @@ bool string_to_matrix(char* str, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS]
   // Just keep appending chars to matrix and return that matrix. Then
   uint8_t str_l = strlen(str);
   for(uint8_t i = 0; i < str_l; i++){
+    printf("Curr char: %c\n", str[i]);
+    if(str[i] == ' '){
+      // put 3 empty vertical lines in all_matrices
+      printf("_");
+      continue;
+    }
+
     if(!append_char_to_matrix(str[i],matrix)){
       printf("\nReturning false from append_char_to_matrix\n");
       return false;

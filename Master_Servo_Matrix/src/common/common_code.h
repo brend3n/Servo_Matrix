@@ -55,6 +55,10 @@ void init_fp_matrix();
 // Sets the passed in matrix cell to the desired character.
 void get_character_cell(char ch, bool (&cell)[CELL_HEIGHT][CELL_WIDTH]);
 
+// Sets all elements to zero
+void zero_out_matrix(bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS]);
+
+
 // Return true if char can fit in matrix, otherwise return false
 // Also, append the char to the matrix
 bool append_char_to_matrix(char c, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS]);
