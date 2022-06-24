@@ -1,5 +1,5 @@
 // Common code
-#include "src/common/common_code.h"
+#include "common_code.h"
 
 
 // TODO: set this for each module
@@ -77,18 +77,18 @@ void loop()
   
   string_to_matrix(in, all_matrices);
 
-  for(int i = 0; i < 10; i++){
-    bool cell [CELL_HEIGHT][CELL_WIDTH];
-    get_character_cell(in[i], cell);
+  // for(int i = 0; i < 10; i++){
+  //   bool cell [CELL_HEIGHT][CELL_WIDTH];
+  //   get_character_cell(in[i], cell);
 
-    for(int i = 0; i < CELL_HEIGHT;i++){
-      for(int j = 0; j < CELL_WIDTH; j++){
-        printf("%d",cell[i][j]);
-      }
-      printf("\n");
-    }
-    printf("\n");
-  }
+  //   for(int i = 0; i < CELL_HEIGHT;i++){
+  //     for(int j = 0; j < CELL_WIDTH; j++){
+  //       printf("%d",cell[i][j]);
+  //     }
+  //     printf("\n");
+  //   }
+  //   printf("\n");
+  // }
 
 
   for(int i = 0; i < NUM_MODULES; i++){
@@ -98,7 +98,7 @@ void loop()
       }
       printf("\n");
     }
-    printf("\n");
+    printf("\t");
   }
 /*
   // String in_str;
