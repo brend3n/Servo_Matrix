@@ -157,18 +157,18 @@ void zero_out_matrix(bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS])
   }
 }
 
-void copy_column(bool (&dest)[NUM_MODULES][NUM_ROWS][NUM_COLS], bool (&src)[CELL_HEIGHT][CELL_WIDTH], int column_index, int starting_row, int num_module){
+void copy_column(bool (&dest)[NUM_MODULES][NUM_ROWS][NUM_COLS], bool (&src)[CELL_HEIGHT][CELL_WIDTH], int column_index, int iteration, int starting_row, int num_module){
   // Copy a single column from src array to destination array. 
   // Copy the column from src and put it in dest starting at the starting row in dest array
-  printf("Curr column: %d", column_index);
+  printf("Curr column: %d\n", column_index);
   for(int i = 0; i < CELL_HEIGHT; i++){
     if((starting_row+i) > (NUM_ROWS-1))
     {
       printf("poopy\n");
       break;
     }
-    dest[num_module][starting_row+i][column_index] = src[i][column_index];
-    printf("i: %d  dest: %d  src: %d\n",i,dest[num_module][i+starting_row][column_index], src[i][column_index]);
+    dest[num_module][starting_row+i][column_index+iteration] = src[i][iteration];
+    printf("i: %d  dest: %d  src: %d\n",i,dest[num_module][i+starting_row][column_index+iteration], src[i][iteration]);
   }
 }
 
@@ -177,40 +177,31 @@ void copy_column(bool (&dest)[NUM_MODULES][NUM_ROWS][NUM_COLS], bool (&src)[CELL
 bool append_char_to_matrix(char c, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS])
 {
   static int curr_module = 0;
-  static int current_col = 0;
+  static int base_col = 0;
 
   bool cell[CELL_HEIGHT][CELL_WIDTH];
 
   get_character_cell(c, cell);
 
-  for(int i = 0; i < CELL_WIDTH; i++){
-    copy_column(matrix, cell, current_col++, NUM_ROWS-CELL_HEIGHT, curr_module);
-  }
 
-  printf("Matrix print to checkt\n");
+  for(int i = 0; i < CELL_WIDTH; i++){
+    // if(base_col + i > (CELL_WIDTH - 1)){
+    //   curr_module++;
+    // }
+    copy_column(matrix, cell, base_col, i, NUM_ROWS-CELL_HEIGHT, curr_module);
+  }
+  base_col += CELL_WIDTH;
+
+
+
+
+  printf("Matrix print to check:\n");
   for(int i = 0; i < NUM_ROWS;i++){
     for(int j = 0; j < NUM_COLS; j++){
       printf("%d",matrix[curr_module][i][j]);
     }
     printf("\n");
   }
-  
-  // for(int i = 0; i < CELL_WIDTH; i++){
-  //   for(int j = 0; j < CELL_HEIGHT; j++){
-
-  //     // End of module
-  //     if(current_col >= NUM_COLS - 1){
-  //       // Start writing at next module
-  //       printf("Start writing in next module.\n");
-  //       curr_module++;
-  //       current_col = 0; 
-  //     }
-  //     matrix[curr_module][j+(NUM_ROWS-CELL_HEIGHT)][i] = cell[j][i];
-  //   }
-  //   current_col++;
-  // }
-  
-
 
   return true;
 }
