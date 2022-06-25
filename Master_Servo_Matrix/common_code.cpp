@@ -174,31 +174,36 @@ void copy_column(bool (&dest)[NUM_MODULES][NUM_ROWS][NUM_COLS], bool (&src)[CELL
 
 // Return true if char can fit in matrix, otherwise return false
 // Also, append the char to the matrix
-bool append_char_to_matrix(char c, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS])
+bool append_char_to_matrix(char c, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS], int* curr_module, int* base_col)
 {
-  static int curr_module = 0;
-  static int base_col = 0;
+  // static int curr_module = 0;
+  // static int base_col = 0;
 
+  // Append a single column SINGLE_COLUMN
   bool cell[CELL_HEIGHT][CELL_WIDTH];
-
+  if (c == '_'){
+    printf("ADDING SIGNLE COLUMN\n");
+    get_character_cell(' ', cell);
+    copy_column(matrix, cell, *base_col, 0, NUM_ROWS-CELL_HEIGHT, *curr_module);
+    return true;
+  }
   get_character_cell(c, cell);
 
 
   for(int i = 0; i < CELL_WIDTH; i++){
-    // if(base_col + i > (CELL_WIDTH - 1)){
-    //   curr_module++;
-    // }
-    copy_column(matrix, cell, base_col, i, NUM_ROWS-CELL_HEIGHT, curr_module);
+    if((*base_col + i) > (NUM_COLS - 1)){
+      *curr_module += 1;
+      *base_col = 0;
+      i = 0;
+    }
+    copy_column(matrix, cell, *base_col, i, NUM_ROWS-CELL_HEIGHT, *curr_module);
   }
-  base_col += CELL_WIDTH;
-
-
-
+  *base_col += CELL_WIDTH;
 
   printf("Matrix print to check:\n");
   for(int i = 0; i < NUM_ROWS;i++){
     for(int j = 0; j < NUM_COLS; j++){
-      printf("%d",matrix[curr_module][i][j]);
+      printf("%d",matrix[*curr_module][i][j]);
     }
     printf("\n");
   }
@@ -218,19 +223,26 @@ bool string_to_matrix(char* str, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS]
    *
    * Figure out spaces between words/letters/etc.
    */
+  int base_col = 0;
+  int curr_module = 0; 
 
   // TODO: At somepoint it would be cool to implement scrolling text
   // Just keep appending chars to matrix and return that matrix. Then
   uint8_t str_l = strlen(str);
   for(uint8_t i = 0; i < str_l; i++){
     printf("Curr char: %c\n", str[i]);
-    if(str[i] == ' '){
-      // put 3 empty vertical lines in all_matrices
-      printf("_");
+    if(str[i] == '_'){
+      uint8_t num_cols_in_space = 3;
+      for(uint8_t i = 0; i < num_cols_in_space; i++){
+        if(!append_char_to_matrix('_',matrix, &curr_module, &base_col)){
+          printf("\nReturning false from append_char_to_matrix\n");
+          return false;
+        }
+      }
       continue;
     }
 
-    if(!append_char_to_matrix(str[i],matrix)){
+    if(!append_char_to_matrix(str[i],matrix, &curr_module, &base_col)){
       printf("\nReturning false from append_char_to_matrix\n");
       return false;
     }

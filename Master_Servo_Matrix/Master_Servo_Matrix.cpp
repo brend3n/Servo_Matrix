@@ -76,31 +76,22 @@ void loop()
   zero_out_matrix(all_matrices);
   
   string_to_matrix(in, all_matrices);
-
-  // for(int i = 0; i < 10; i++){
-  //   bool cell [CELL_HEIGHT][CELL_WIDTH];
-  //   get_character_cell(in[i], cell);
-
-  //   for(int i = 0; i < CELL_HEIGHT;i++){
-  //     for(int j = 0; j < CELL_WIDTH; j++){
-  //       printf("%d",cell[i][j]);
-  //     }
-  //     printf("\n");
-  //   }
-  //   printf("\n");
-  // }
-
-
-  for(int i = 0; i < NUM_MODULES; i++){
+  int count = 0;
+  
+  printf("\n\nFinal Matrix: \n");
+  for(int i = 0; i < NUM_MODULES;i++){
     for(int j = 0; j < NUM_ROWS; j++){
-      for(int k = 0;k < NUM_COLS; k++){
-        all_matrices[i][j][k];
+      for(int k = 0; k < NUM_COLS; k++){
+        printf("%d", all_matrices[i][j][k]);
+        count++;
       }
-      printf("\n");
+      // if(count == NUM_MODULES*NUM_ROWS)
+        printf("\n");
     }
-    printf("\t");
+    printf("\n");
   }
-  return;
+
+
 /*
   // String in_str;
   // Serial.print("Enter string to display: ");

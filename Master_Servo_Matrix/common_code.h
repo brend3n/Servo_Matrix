@@ -19,7 +19,7 @@
 
 
 #define NUM_BOARDS 6
-#define NUM_MODULES 1 // Adjust this to match the number of modules are being used
+#define NUM_MODULES 3 // Adjust this to match the number of modules are being used
 
 #define DELAY_BETWEEN_STRINGS_MS 5000 // 5 seconds
 

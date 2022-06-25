@@ -726,6 +726,16 @@ bool AT_SIGN_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,1}
 };
 
+bool SINGLE_COLUMN [CELL_HEIGHT][1] = {
+    {0},
+    {0},
+    {0},
+    {0},
+    {0},
+    {0},
+    {0}
+};
+
 
 
 // // Array for all character representations

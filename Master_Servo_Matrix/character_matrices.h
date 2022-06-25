@@ -85,5 +85,6 @@ extern bool w_cell [CELL_HEIGHT][CELL_WIDTH];
 extern bool x_cell [CELL_HEIGHT][CELL_WIDTH];
 extern bool y_cell [CELL_HEIGHT][CELL_WIDTH];
 extern bool z_cell [CELL_HEIGHT][CELL_WIDTH];
+extern bool SINGLE_COLUMN [CELL_HEIGHT][1];
 
 #endif
