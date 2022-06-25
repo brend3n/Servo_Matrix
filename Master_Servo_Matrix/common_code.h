@@ -63,6 +63,9 @@ void zero_out_matrix(bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS]);
 // Also, append the char to the matrix
 bool append_char_to_matrix(char c, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS]);
 
+// Print out the matrices
+void print_matrix(bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS]);
+
 // Params: 
 //        str <- string to print
 //        matrix <- reference to matrix to fill

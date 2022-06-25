@@ -77,21 +77,7 @@ void loop()
   
   string_to_matrix(in, all_matrices);
 
-  int count = 0;
-
-  printf("\n\nFinal Matrix: \n");
-  for(int i = 0; i < NUM_MODULES;i++){
-    for(int j = 0; j < NUM_ROWS; j++){
-      for(int k = 0; k < NUM_COLS; k++){
-        printf("%c", (all_matrices[i][j][k] == 1)?ON_:OFF_);
-        count++;
-      }
-        printf("\n");
-    }
-    printf("\n");
-  }
-
-
+  print_matrix(all_matrices);
 /*
   // String in_str;
   // Serial.print("Enter string to display: ");
