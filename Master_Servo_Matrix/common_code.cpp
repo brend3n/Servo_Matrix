@@ -182,7 +182,7 @@ bool append_char_to_matrix(char c, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COL
   // Append a single column SINGLE_COLUMN
   bool cell[CELL_HEIGHT][CELL_WIDTH];
   if (c == '_'){
-    printf("ADDING SIGNLE COLUMN\n");
+    // printf("ADDING SIGNLE COLUMN\n");
     get_character_cell(' ', cell);
     copy_column(matrix, cell, *base_col, 0, NUM_ROWS-CELL_HEIGHT, *curr_module);
     return true;
@@ -200,13 +200,13 @@ bool append_char_to_matrix(char c, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COL
   }
   *base_col += CELL_WIDTH;
 
-  printf("Matrix print to check:\n");
-  for(int i = 0; i < NUM_ROWS;i++){
-    for(int j = 0; j < NUM_COLS; j++){
-      printf("%d",matrix[*curr_module][i][j]);
-    }
-    printf("\n");
-  }
+  // printf("Matrix print to check:\n");
+  // for(int i = 0; i < NUM_ROWS;i++){
+  //   for(int j = 0; j < NUM_COLS; j++){
+  //     printf("%d",matrix[*curr_module][i][j]);
+  //   }
+  //   printf("\n");
+  // }
 
   return true;
 }

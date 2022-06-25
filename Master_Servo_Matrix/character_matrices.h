@@ -4,7 +4,8 @@
 #define CELL_WIDTH  5
 #define CELL_HEIGHT 7
 
-
+#define ON_ '#'
+#define OFF_ '_'
 
 /*Character matrices*/
 extern bool ZERO_cell [CELL_HEIGHT][CELL_WIDTH];

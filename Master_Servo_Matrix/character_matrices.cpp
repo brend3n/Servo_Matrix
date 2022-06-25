@@ -11,6 +11,7 @@
 //     {},
 // };
 
+
 /*Uppercase*/
 bool A_cell [CELL_HEIGHT][CELL_WIDTH] = {
     {0,1,1,1,0},

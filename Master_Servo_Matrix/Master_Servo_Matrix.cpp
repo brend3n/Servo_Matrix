@@ -76,16 +76,16 @@ void loop()
   zero_out_matrix(all_matrices);
   
   string_to_matrix(in, all_matrices);
+
   int count = 0;
-  
+
   printf("\n\nFinal Matrix: \n");
   for(int i = 0; i < NUM_MODULES;i++){
     for(int j = 0; j < NUM_ROWS; j++){
       for(int k = 0; k < NUM_COLS; k++){
-        printf("%d", all_matrices[i][j][k]);
+        printf("%c", (all_matrices[i][j][k] == 1)?ON_:OFF_);
         count++;
       }
-      // if(count == NUM_MODULES*NUM_ROWS)
         printf("\n");
     }
     printf("\n");
