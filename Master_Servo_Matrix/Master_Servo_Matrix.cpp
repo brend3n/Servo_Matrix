@@ -65,11 +65,13 @@ void setup(){
   */
 
 }
+
 void loop()
 {
 
   // char* in;
   char in[1024];
+  char * res;
   printf("Enter a string: ");
   scanf("%s", in);
 
@@ -78,47 +80,6 @@ void loop()
   string_to_matrix(in, all_matrices);
 
   print_matrix(all_matrices);
-/*
-  // String in_str;
-  // Serial.print("Enter string to display: ");
-  // while(!Serial.available()){} // Wait for string to be available
-
-  // in_str = Serial.readString();
-  // in_str.toCharArray(in,in_str.length());
-  // Serial.println("Printing: " + in_str);
-
-  // Serial.println("Processing string");
-  printf("String: %s\n", in);
-  // Make matrix for each module to display
-  if (!string_to_matrix(in, all_matrices)){
-    return; // Restart the loop
-  }
-
-  // send_out_matrices_to_modules();
-  // TODO: send response to master saying its ready
-  //  - Once Master receives this, then it will send BROADCAST message to all nodes to display message
-
-  // TODO: Wait for master to send GO and then display
-
-
-  // Serial.println("Displaying string:");
-  display();
-  
-  // delay(DELAY_BETWEEN_STRINGS_MS); // Set 
-  set_all(OFF_STATE);
-
-  for(int i = 0; i < NUM_MODULES; i++)
-  {
-    for(int j = 0; i < NUM_ROWS; j++)
-    {
-      for(int k = 0; i < NUM_COLS; k++)
-      {
-        printf("%d", all_matrices[i][j][k]);
-      }
-    }
-    printf("\n");
-  }
-*/  
 }
 
 
