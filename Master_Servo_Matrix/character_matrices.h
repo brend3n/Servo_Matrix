@@ -4,7 +4,7 @@
 #define CELL_WIDTH  5
 #define CELL_HEIGHT 7
 
-#define ON_ '#'
+#define ON_ 'X'
 #define OFF_ '_'
 
 /*Character matrices*/

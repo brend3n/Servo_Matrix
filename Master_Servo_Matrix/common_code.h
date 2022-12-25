@@ -16,8 +16,6 @@
 // #include "Wire.h"
 // #include <Adafruit_PWMServoDriver.h>
 
-
-
 #define NUM_BOARDS 6
 #define NUM_MODULES 3 // Adjust this to match the number of modules are being used
 
