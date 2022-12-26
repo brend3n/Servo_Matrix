@@ -260,6 +260,7 @@ bool string_to_matrix(char* str, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS]
   // Just keep appending chars to matrix and return that matrix. Then
   uint8_t str_l = strlen(str);
 
+  // Loop over all characters in string, and append to matrix
   for(uint8_t i = 0; i < str_l; i++){
     printf("Curr char: %c\n", str[i]);
     if(str[i] == '_'){
