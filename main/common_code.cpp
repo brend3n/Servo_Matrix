@@ -103,11 +103,12 @@ void get_character_cell(char ch, bool (&cell)[CELL_HEIGHT][CELL_WIDTH])
   else if(ch == ',') memcpy(cell,COMMA_cell,        sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
   else if(ch == '_') memcpy(cell,UNDERSCORE_cell,   sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
   else if(ch == '@') memcpy(cell,AT_SIGN_cell,      sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
+  else if(ch == '\n')memcpy(cell,SPACE_cell,        sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
   else               memcpy(cell,CURSOR_cell,       sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
 
   for(int i = 0; i < CELL_HEIGHT;i++){
     for(int j = 0; j < CELL_WIDTH;j++){
-      printf("%d", cell[i][j]);
+      printf("%c", (cell[i][j]) ? ON_ : OFF_);
     }
     printf("\n");
   }
@@ -141,7 +142,7 @@ void zero_out_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS])
 }
 
 // TODO: This has to be updated
-void copy_column(bool (&dest)[NUM_ROWS][NUM_COLS], bool (&src)[CELL_HEIGHT][CELL_WIDTH], int column_index, int iteration, int starting_row, int num_module){
+void copy_column(bool (&dest)[NUM_ROWS][NUM_COLS], bool (&src)[CELL_HEIGHT][CELL_WIDTH], int column_index, int iteration, int starting_row){
   // Copy a single column from src array to destination array. 
   // Copy the column from src and put it in dest starting at the starting row in dest array
   printf("Curr column: %d\n", column_index);
@@ -164,46 +165,40 @@ bool append_char_to_matrix(char c, bool (&matrix)[NUM_ROWS][NUM_COLS], int* base
   // Append a single column SINGLE_COLUMN
   bool cell[CELL_HEIGHT][CELL_WIDTH];
 
-  if (c == '_'){
-    printf("ADDING SINGLE COLUMN\n");
-    get_character_cell(' ', cell);
-    copy_column(matrix, cell, *base_col, 0, NUM_ROWS-CELL_HEIGHT, *curr_module);
-    *base_col += 1;
-    return true;
-  }
+//   if (c == '_'){
+//     printf("ADDING SINGLE COLUMN\n");
+//     get_character_cell(' ', cell);
+//     copy_column(matrix, cell, *base_col, 0, NUM_ROWS-CELL_HEIGHT);
+//     *base_col += 1;
+//     return true;
+//   }
+
   get_character_cell(c, cell);
 
 
   for(int i = 0; i < CELL_WIDTH; i++){
-    
-    // Go to next module
-    if((*base_col + i) > (NUM_COLS - 1)){
-      *curr_module += 1;
-      *base_col = 0;
-      i = 0;
-    }
 
-    // If first letter, skip
-    if(iteration != 0)
-    {
-      // Check if there is no space between the previous character's last column
-      //  Loop over ever row in the last column
-      for (int i = 0; i < NUM_ROWS; i++)
-      {
-          printf("base_col: %d\n", *base_col);
-          // Check if it is filled
-          if (matrix[*curr_module][i + (NUM_ROWS-CELL_HEIGHT)][*base_col-1] == 1)
-          {
-            // If there is no space, add one
-            get_character_cell(' ', cell);
-            copy_column(matrix, cell, *base_col, 0, NUM_ROWS-CELL_HEIGHT, *curr_module);
-            *base_col += 1;
-            break; // Done needing to add another empty column
-          }
-      }
-    }
+    // // If first letter, skip
+    // if(iteration != 0)
+    // {
+    //   // Check if there is no space between the previous character's last column
+    //   //  Loop over ever row in the last column
+    //   for (int i = 0; i < NUM_ROWS; i++)
+    //   {
+    //       printf("base_col: %d\n", *base_col);
+    //       // Check if it is filled
+    //       if (matrix[i + (NUM_ROWS-CELL_HEIGHT)][*base_col-1] == 1)
+    //       {
+    //         // If there is no space, add one
+    //         get_character_cell(' ', cell);
+    //         copy_column(matrix, cell, *base_col, 0, NUM_ROWS-CELL_HEIGHT);
+    //         *base_col += 1;
+    //         break; // Done needing to add another empty column
+    //       }
+    //   }
+    // }
   
-    copy_column(matrix, cell, *base_col, i, NUM_ROWS-CELL_HEIGHT, *curr_module);
+    copy_column(matrix, cell, *base_col, i, NUM_ROWS-CELL_HEIGHT);
   }
   *base_col += CELL_WIDTH;
 
@@ -231,18 +226,20 @@ bool string_to_matrix(char* str, bool (&matrix)[NUM_ROWS][NUM_COLS]){
   // Loop over all characters in string, and append to matrix
   for(uint8_t i = 0; i < str_l; i++){
     printf("Curr char: %c\n", str[i]);
-    if(str[i] == '_'){
-      uint8_t num_cols_in_space = 1;
-      for(uint8_t i = 0; i < num_cols_in_space; i++){
-        if(!append_char_to_matrix('_',matrix, &curr_module, &base_col, i)){
-          printf("\nReturning false from append_char_to_matrix\n");
-          return false;
-        }
-      }
-      continue;
-    }
 
-    if(!append_char_to_matrix(str[i],matrix, &base_col, i)){
+    // if(str[i] == '_')
+	// {
+    //   uint8_t num_cols_in_space = 1;
+    //   for(uint8_t i = 0; i < num_cols_in_space; i++){
+    //     if(!append_char_to_matrix('_', matrix, &base_col, i)){
+    //       printf("\nReturning false from append_char_to_matrix\n");
+    //       return false;
+    //     }
+    //   }
+    //   continue;
+    // }
+
+    if(!append_char_to_matrix(str[i], matrix, &base_col, i)){
       printf("\nReturning false from append_char_to_matrix\n");
       return false;
     }

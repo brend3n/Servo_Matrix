@@ -14,7 +14,8 @@ void loop()
   char in[1024];
   char * res;
   printf("Enter a string: ");
-  scanf("%s", in);
+  fgets(in, 1024, stdin);
+  printf("Input: %s\n", in);
 
   zero_out_matrix(string_matrix);
   

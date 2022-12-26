@@ -23,7 +23,8 @@
 
 #define PWM_FREQ 0    // TODO: Set this accordingly
 #define NUM_ROWS 10 * 2
-#define NUM_COLS 10 * 2
+// #define NUM_COLS 10 * 2
+#define NUM_COLS 10 * 20
 
 #define OFF 0         // OFF function pointer 2d array
 #define ON  1         // ON function pointer 2d array
