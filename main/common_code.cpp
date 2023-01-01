@@ -14,43 +14,11 @@ enum characters_enum{
 // Params: state: pass in either ON or OFF
 void set_all(uint8_t state)
 {
-  for(uint8_t i = 0; i < NUM_BOARDS; i++)
-  {
-    for(uint8_t j = 0; j < 16; j++)
-    {
-      // boards[i].setPin(j, state, false);
-    }
-  }
 }
 
 // Writes a state (ON or OFF) to a pin on a given board
 void write_element(uint8_t board_index, uint8_t pin, uint8_t state)
 {
-  // boards[board_index].setPin(pin,state,false);
-}
-
-// Sets up function pointer 3d array
-void init_fp_matrix()
-{
-  uint8_t row = 0;
-  uint8_t col = 0;
-
-  for(uint8_t i = 0; i < NUM_BOARDS; i++)
-  {
-    for(uint8_t j = 0; j < 16; j++)
-    {
-      // Stop putting function pointers at end of COLS
-      if (col == NUM_COLS)
-      {
-        col = 0;
-        row++;
-      }
-
-      matrix_ops[row][col].pin = j;
-      matrix_ops[row][col].driver_num = i;
-      col++;   // Go to next position to fill
-    }
-  }
 }
 
 // Sets the passed in matrix cell to the desired character.
@@ -135,45 +103,46 @@ void get_character_cell(char ch, bool (&cell)[CELL_HEIGHT][CELL_WIDTH])
   else if(ch == ',') memcpy(cell,COMMA_cell,        sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
   else if(ch == '_') memcpy(cell,UNDERSCORE_cell,   sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
   else if(ch == '@') memcpy(cell,AT_SIGN_cell,      sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
+  else if(ch == '\n')memcpy(cell,SPACE_cell,        sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
   else               memcpy(cell,CURSOR_cell,       sizeof(bool)*CELL_HEIGHT*CELL_WIDTH);
 
   for(int i = 0; i < CELL_HEIGHT;i++){
     for(int j = 0; j < CELL_WIDTH;j++){
-      printf("%d", cell[i][j]);
+      printf("%c", (cell[i][j]) ? ON_ : OFF_);
     }
     printf("\n");
   }
  
 }
 
-void print_matrix(bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS]){
-  int count = 0;
+void print_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS]){
+	int count = 0;
 
-  printf("\n\nFinal Matrix: \n");
-  for(int i = 0; i < NUM_MODULES;i++){
-    for(int j = 0; j < NUM_ROWS; j++){
-      for(int k = 0; k < NUM_COLS; k++){
-        printf("%c", (matrix[i][j][k] == 1)?ON_:OFF_);
-        count++;
-      }
-        printf("\n");
-    }
-    printf("\n");
-  }
+	printf("\n\nFinal Matrix: \n");
+	
+	for(int j = 0; j < NUM_ROWS; j++)
+	{
+		for(int k = 0; k < NUM_COLS; k++)
+		{
+			printf("%c", (matrix[j][k] == 1)?ON_:OFF_);
+			count++;
+		}	
+		printf("\n");
+	}
+	printf("\n");
 }
 
-void zero_out_matrix(bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS])
+void zero_out_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS])
 {
-  for(int i = 0; i < NUM_MODULES; i++){
     for(int j = 0; j < NUM_ROWS; j++){
-      for(int k = 0; k < NUM_COLS; k++){
-        matrix[i][j][k] = 0;
-      }
+    	for(int k = 0; k < NUM_COLS; k++){
+    		matrix[j][k] = 0;
+    	}
     }
-  }
 }
 
-void copy_column(bool (&dest)[NUM_MODULES][NUM_ROWS][NUM_COLS], bool (&src)[CELL_HEIGHT][CELL_WIDTH], int column_index, int iteration, int starting_row, int num_module){
+// TODO: This has to be updated
+void copy_column(bool (&dest)[NUM_ROWS][NUM_COLS], bool (&src)[CELL_HEIGHT][CELL_WIDTH], int column_index, int iteration, int starting_row){
   // Copy a single column from src array to destination array. 
   // Copy the column from src and put it in dest starting at the starting row in dest array
   printf("Curr column: %d\n", column_index);
@@ -183,58 +152,53 @@ void copy_column(bool (&dest)[NUM_MODULES][NUM_ROWS][NUM_COLS], bool (&src)[CELL
       printf("poopy\n");
       break;
     }
-    dest[num_module][starting_row+i][column_index+iteration] = src[i][iteration];
-    printf("i: %d  dest: %d  src: %d\n",i,dest[num_module][i+starting_row][column_index+iteration], src[i][iteration]);
+    dest[starting_row+i][column_index+iteration] = src[i][iteration];
+    printf("i: %d  dest: %d  src: %d\n",i,dest[i+starting_row][column_index+iteration], src[i][iteration]);
   }
 }
 
+// TODO: This has to be updated
 // Return true if char can fit in matrix, otherwise return false
 // Also, append the char to the matrix
-bool append_char_to_matrix(char c, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS], int* curr_module, int* base_col, int iteration)
+bool append_char_to_matrix(char c, bool (&matrix)[NUM_ROWS][NUM_COLS], int* base_col, int iteration)
 {
   // Append a single column SINGLE_COLUMN
   bool cell[CELL_HEIGHT][CELL_WIDTH];
 
-  if (c == '_'){
-    printf("ADDING SINGLE COLUMN\n");
-    get_character_cell(' ', cell);
-    copy_column(matrix, cell, *base_col, 0, NUM_ROWS-CELL_HEIGHT, *curr_module);
-    *base_col += 1;
-    return true;
-  }
+//   if (c == '_'){
+//     printf("ADDING SINGLE COLUMN\n");
+//     get_character_cell(' ', cell);
+//     copy_column(matrix, cell, *base_col, 0, NUM_ROWS-CELL_HEIGHT);
+//     *base_col += 1;
+//     return true;
+//   }
+
   get_character_cell(c, cell);
 
 
   for(int i = 0; i < CELL_WIDTH; i++){
-    
-    // Go to next module
-    if((*base_col + i) > (NUM_COLS - 1)){
-      *curr_module += 1;
-      *base_col = 0;
-      i = 0;
-    }
 
-    // If first letter, skip
-    if(iteration != 0)
-    {
-      // Check if there is no space between the previous character's last column
-      //  Loop over ever row in the last column
-      for (int i = 0; i < NUM_ROWS; i++)
-      {
-          printf("base_col: %d\n", *base_col);
-          // Check if it is filled
-          if (matrix[*curr_module][i + (NUM_ROWS-CELL_HEIGHT)][*base_col-1] == 1)
-          {
-            // If there is no space, add one
-            get_character_cell(' ', cell);
-            copy_column(matrix, cell, *base_col, 0, NUM_ROWS-CELL_HEIGHT, *curr_module);
-            *base_col += 1;
-            break; // Done needing to add another empty column
-          }
-      }
-    }
+    // // If first letter, skip
+    // if(iteration != 0)
+    // {
+    //   // Check if there is no space between the previous character's last column
+    //   //  Loop over ever row in the last column
+    //   for (int i = 0; i < NUM_ROWS; i++)
+    //   {
+    //       printf("base_col: %d\n", *base_col);
+    //       // Check if it is filled
+    //       if (matrix[i + (NUM_ROWS-CELL_HEIGHT)][*base_col-1] == 1)
+    //       {
+    //         // If there is no space, add one
+    //         get_character_cell(' ', cell);
+    //         copy_column(matrix, cell, *base_col, 0, NUM_ROWS-CELL_HEIGHT);
+    //         *base_col += 1;
+    //         break; // Done needing to add another empty column
+    //       }
+    //   }
+    // }
   
-    copy_column(matrix, cell, *base_col, i, NUM_ROWS-CELL_HEIGHT, *curr_module);
+    copy_column(matrix, cell, *base_col, i, NUM_ROWS-CELL_HEIGHT);
   }
   *base_col += CELL_WIDTH;
 
@@ -247,14 +211,13 @@ bool append_char_to_matrix(char c, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COL
 // Returns:
 //        true <- if string can fit
 //        false <- if string cannot fit
-bool string_to_matrix(char* str, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS]){
+bool string_to_matrix(char* str, bool (&matrix)[NUM_ROWS][NUM_COLS]){
   /**
    * TODO:
    *
    * Figure out spaces between words/letters/etc.
    */
-  int base_col = 0;
-  int curr_module = 0; 
+  int base_col = 0; 
 
   // TODO: At somepoint it would be cool to implement scrolling text
   // Just keep appending chars to matrix and return that matrix. Then
@@ -263,18 +226,20 @@ bool string_to_matrix(char* str, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS]
   // Loop over all characters in string, and append to matrix
   for(uint8_t i = 0; i < str_l; i++){
     printf("Curr char: %c\n", str[i]);
-    if(str[i] == '_'){
-      uint8_t num_cols_in_space = 1;
-      for(uint8_t i = 0; i < num_cols_in_space; i++){
-        if(!append_char_to_matrix('_',matrix, &curr_module, &base_col, i)){
-          printf("\nReturning false from append_char_to_matrix\n");
-          return false;
-        }
-      }
-      continue;
-    }
 
-    if(!append_char_to_matrix(str[i],matrix, &curr_module, &base_col, i)){
+    // if(str[i] == '_')
+	// {
+    //   uint8_t num_cols_in_space = 1;
+    //   for(uint8_t i = 0; i < num_cols_in_space; i++){
+    //     if(!append_char_to_matrix('_', matrix, &base_col, i)){
+    //       printf("\nReturning false from append_char_to_matrix\n");
+    //       return false;
+    //     }
+    //   }
+    //   continue;
+    // }
+
+    if(!append_char_to_matrix(str[i], matrix, &base_col, i)){
       printf("\nReturning false from append_char_to_matrix\n");
       return false;
     }
@@ -282,17 +247,7 @@ bool string_to_matrix(char* str, bool (&matrix)[NUM_MODULES][NUM_ROWS][NUM_COLS]
   return true;
 }
 
-void display(){
-  for(uint8_t i = 0; i < NUM_ROWS; i++)
-  {
-    for(uint8_t j = 0; j < NUM_COLS; j++)
-    {
-      // Display if there is something
-      if(matrix_l[i][j])
-        write_element(matrix_ops[i][j].driver_num, matrix_ops[i][j].pin, ON);
-      else
-        continue;
-
-    }
-  }
+// Display the text thin
+void display()
+{
 }
