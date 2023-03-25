@@ -23,6 +23,9 @@ void loop()
 
   print_matrix(string_matrix);
 
+  // Prints the matrix for each of the boards
+  // Note: This implies a string must be printed or displayed on a given number of boards.
+  // strings that could not be displayed on the given set number of boards would not be fully displayed
   for (int index = 0; index < NUM_BOARDS; index++)
     print_each_board_matrix(string_matrix, index);
 

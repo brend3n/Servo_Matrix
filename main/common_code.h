@@ -57,7 +57,7 @@ bool append_char_to_matrix(char c, bool (&matrix)[NUM_ROWS][NUM_COLS]);
 void print_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS]);
 
 void print_each_board_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS], int index);
-void print_each_board_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS]);
+void print_matrices_until_string_depleted(bool (&matrix)[NUM_ROWS][NUM_COLS]);
 
 // Params: 
 //        str <- string to print

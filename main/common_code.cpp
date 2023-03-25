@@ -1,4 +1,5 @@
 #include "common_code.h"
+#include <time.h>
 
 // Access array elements through enum
 enum characters_enum{
@@ -134,11 +135,11 @@ void print_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS]){
 
 void print_each_board_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS], int index){
 
-	printf("\n\nSingular Matrix: \n");
   int start_col = index*COLS_PER_BOARD;
   int end_col = index*COLS_PER_BOARD + COLS_PER_BOARD - 1;
 
   int index_counter;
+  
 
   printf("Matrix for Board %d\n", index);
   for(int j = 0; j < NUM_ROWS; j++)
@@ -149,11 +150,6 @@ void print_each_board_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS], int index){
       if (index_counter >= start_col && index_counter <= end_col)
       {
         printf("%c", (matrix[j][k] == 1)?ON_:OFF_);
-        // printf("col: %d %s\n", index_counter, (matrix[j][k] == 1)?"ON":"OFF");
-      }
-      else
-      {
-        printf("%c", OFF_);
       }
       index_counter++;
     }	
@@ -163,40 +159,160 @@ void print_each_board_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS], int index){
 	printf("\n");
 }
 
-void print_matrices_until_string_depleted(bool (&matrix)[NUM_ROWS][NUM_COLS])
+int get_last_active_column_from_front (bool (&matrix)[NUM_ROWS][NUM_COLS])
+{
+  int last_col = 0;
+  // uint8_t max_consecutive_empty_cols = 4;// br-> 12
+  uint8_t max_consecutive_empty_cols = 5;// br-> 13
+  int current_consecutive_empty_cols = 0;
+  bool is_active;
+
+  for(int i = 0; i < NUM_COLS; i++)
+  {
+
+    // Start every column as not_active
+    is_active = false;
+    
+    // Iterate over column to see if its active (any row in col is turned on)
+    // TRUE if active, FALSE otherwise
+    for(int j = 0; j < NUM_ROWS; j++)
+    {
+      is_active |= matrix[j][i]; // if any of the elements are TRUE, then is_active will latch to TRUE
+    }
+
+    // Empty column
+    if (!is_active)
+    {
+      // Increment that we have found another empty columns
+      current_consecutive_empty_cols++;
+
+      // Check if we have reached the limit rof consecutive empty cols
+      if (current_consecutive_empty_cols >= max_consecutive_empty_cols)
+      {
+        break;
+      }
+    }
+    else
+    {
+      // We have found an active column! So, reset current count of empty cols
+      current_consecutive_empty_cols = 0;
+    }
+
+    last_col++;
+  }
+
+  return last_col;
+}
+
+
+int get_last_active_column_from_end (bool (&matrix)[NUM_ROWS][NUM_COLS])
 {
 
+  // TODO: To solve this, we just have to find the first active column where we start from the end of the matrix
 
+
+  // Start from the end
+  int last_col = NUM_COLS - 1;
+
+  bool is_active;
+
+  // Interate backwards. Start at the last column
+  for(int i = NUM_COLS - 1; i >= 0; i--)
+  {
+
+    // Start every column as not_active
+    is_active = false;
+    
+    // Iterate over column to see if its active (any row in col is turned on)
+    // TRUE if active, FALSE otherwise
+    for(int j = 0; j < NUM_ROWS; j++)
+    {
+      is_active |= matrix[j][i]; // if any of the elements are TRUE, then is_active will latch to TRUE
+    }
+
+    #if (DEBUG == 1)    
+      printf("col: %d -> %s\n", last_col, (is_active) ? "TRUE" : "FALSE");
+    #endif
+
+    // Empty column
+    if (is_active)
+      break;
+
+    last_col--;
+  }
+
+  return last_col + 1; // Account for 0 index
+}
+
+
+void print_matrices_until_string_depleted(bool (&matrix)[NUM_ROWS][NUM_COLS])
+{
 
   // TODO: Try to use the same logic as the function above
 	printf("\n\nPrint until string is all matrixed: \n");
 
   int board_index = 0; // Used for assigning matrices to a board or just a number
-  int index_counter; // Used for keeping track of col numbers
-  int start_col = board_index*COLS_PER_BOARD; // 
-  int end_col = board_index*COLS_PER_BOARD + COLS_PER_BOARD - 1;
-  bool do_all_be_empty = false;
+  int index_counter = 0; // Used for keeping track of col numbers
 
-  printf("Matrix for Board %d\n", board_index);
-  for(int j = 0; j < NUM_ROWS; j++)
+  int start_col = 0;
+  int end_col = 0;
+
+  int total_matrixes_needed = 0;
+
+  int col_count = 0;
+
+  clock_t t;
+  t = clock();
+  int last_column = get_last_active_column_from_front(matrix);
+  t = clock() - t;
+
+  printf("Last Active Column from Front took %f seconds: %d\n",((double)t)/CLOCKS_PER_SEC,last_column);
+
+  t = clock();
+  last_column = get_last_active_column_from_end(matrix);
+  t = clock() - t;
+
+  printf("Last Active Column from End took %f seconds: %d\n",((double)t)/CLOCKS_PER_SEC,last_column);
+
+  printf("Results show that as the string gets larger, the last_col approach from the end is better\n");
+
+
+  while (true)
   {
-    index_counter = 0;
-    for(int k = 0; k < NUM_COLS; k++)
+
+    // We done?
+    if (end_col >= last_column)
+      break;
+      
+    // Recalculate bounds
+    start_col = board_index*COLS_PER_BOARD;
+    end_col = board_index*COLS_PER_BOARD + COLS_PER_BOARD - 1;
+
+    printf("Matrix for Board %d\n", board_index);
+    for(int j = 0; j < NUM_ROWS; j++)
     {
-      if (index_counter >= start_col && index_counter <= end_col)
+      index_counter = 0;
+      for(int k = 0; k <= NUM_COLS; k++)
       {
-        printf("%c", (matrix[j][k] == 1)?ON_:OFF_);
-        // printf("col: %d %s\n", index_counter, (matrix[j][k] == 1)?"ON":"OFF");
-      }
-      else
-      {
-        printf("%c", OFF_);
-      }
-      index_counter++;
-    }	
+        if (index_counter >= start_col && index_counter <= end_col)
+        {
+          printf("%c", (matrix[j][k] == 1)?ON_:OFF_);
+        }
+        index_counter++;
+        col_count++;
+      }	
+      printf("\n");
+    }
     printf("\n");
+
+    #if (DEBUG==1)
+      printf("index_counter: %d\tlast_col_count: %d\tCurr_col_count: %d\n", index_counter,last_column,col_count);
+    #endif
+    // Increment for the next board
+    board_index++;
   }
   
+  printf("Total matrices/modules needed: %d\n", board_index+1);
 	printf("\n");
 }
 

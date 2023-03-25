@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"*.conf": "properties",
+		"limits": "cpp"
+	}
+}
