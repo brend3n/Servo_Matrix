@@ -1,6 +1,8 @@
 // Common code
 #include "common_code.h"
 
+
+#define MAX_STR_SIZE 1024
 bool string_matrix [NUM_ROWS][NUM_COLS];
 
 void setup()
@@ -9,12 +11,14 @@ void setup()
 
 void loop()
 {
+  // Used for timing
+  clock_t t;
+  t = clock();
 
-  // char* in;
-  char in[1024];
+  char in[MAX_STR_SIZE];
   char * res;
   printf("Enter a string: ");
-  fgets(in, 1024, stdin);
+  fgets(in, MAX_STR_SIZE, stdin);
   printf("Input: %s\n", in);
 
   zero_out_matrix(string_matrix);
@@ -30,8 +34,12 @@ void loop()
     print_each_board_matrix(string_matrix, index);
 
   print_matrices_until_string_depleted(string_matrix);
-}
 
+
+  // Timing
+  t = clock() - t;
+  printf("Entire loop took %f seconds\n",((double)t)/CLOCKS_PER_SEC);
+}
 
 int main(){
   setup();

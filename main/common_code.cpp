@@ -1,5 +1,4 @@
 #include "common_code.h"
-#include <time.h>
 
 // Access array elements through enum
 enum characters_enum{
@@ -248,8 +247,11 @@ int get_last_active_column_from_end (bool (&matrix)[NUM_ROWS][NUM_COLS])
 void print_matrices_until_string_depleted(bool (&matrix)[NUM_ROWS][NUM_COLS])
 {
 
-  // TODO: Try to use the same logic as the function above
+  // TODO: need to fix this such that it only takes the entire string rather than allocating the entire matrix in the heap
+
+
 	printf("\n\nPrint until string is all matrixed: \n");
+
 
   int board_index = 0; // Used for assigning matrices to a board or just a number
   int index_counter = 0; // Used for keeping track of col numbers

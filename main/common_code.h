@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <string.h> // cpp string library
 #include <ctype.h>
+#include <time.h>
 
 
 // Hardware libraries
