@@ -22,11 +22,17 @@ void loop()
   string_to_matrix(in, string_matrix);
 
   print_matrix(string_matrix);
+
+  for (int index = 0; index < NUM_BOARDS; index++)
+    print_each_board_matrix(string_matrix, index);
+
+  print_matrices_until_string_depleted(string_matrix);
 }
 
 
 int main(){
   setup();
   while(true){loop();}
+
   return 0;
 }

@@ -132,6 +132,74 @@ void print_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS]){
 	printf("\n");
 }
 
+void print_each_board_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS], int index){
+
+	printf("\n\nSingular Matrix: \n");
+  int start_col = index*COLS_PER_BOARD;
+  int end_col = index*COLS_PER_BOARD + COLS_PER_BOARD - 1;
+
+  int index_counter;
+
+  printf("Matrix for Board %d\n", index);
+  for(int j = 0; j < NUM_ROWS; j++)
+  {
+    index_counter = 0;
+    for(int k = 0; k < NUM_COLS; k++)
+    {
+      if (index_counter >= start_col && index_counter <= end_col)
+      {
+        printf("%c", (matrix[j][k] == 1)?ON_:OFF_);
+        // printf("col: %d %s\n", index_counter, (matrix[j][k] == 1)?"ON":"OFF");
+      }
+      else
+      {
+        printf("%c", OFF_);
+      }
+      index_counter++;
+    }	
+    printf("\n");
+  }
+  
+	printf("\n");
+}
+
+void print_matrices_until_string_depleted(bool (&matrix)[NUM_ROWS][NUM_COLS])
+{
+
+
+
+  // TODO: Try to use the same logic as the function above
+	printf("\n\nPrint until string is all matrixed: \n");
+
+  int board_index = 0; // Used for assigning matrices to a board or just a number
+  int index_counter; // Used for keeping track of col numbers
+  int start_col = board_index*COLS_PER_BOARD; // 
+  int end_col = board_index*COLS_PER_BOARD + COLS_PER_BOARD - 1;
+  bool do_all_be_empty = false;
+
+  printf("Matrix for Board %d\n", board_index);
+  for(int j = 0; j < NUM_ROWS; j++)
+  {
+    index_counter = 0;
+    for(int k = 0; k < NUM_COLS; k++)
+    {
+      if (index_counter >= start_col && index_counter <= end_col)
+      {
+        printf("%c", (matrix[j][k] == 1)?ON_:OFF_);
+        // printf("col: %d %s\n", index_counter, (matrix[j][k] == 1)?"ON":"OFF");
+      }
+      else
+      {
+        printf("%c", OFF_);
+      }
+      index_counter++;
+    }	
+    printf("\n");
+  }
+  
+	printf("\n");
+}
+
 void zero_out_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS])
 {
     for(int j = 0; j < NUM_ROWS; j++){
@@ -145,15 +213,23 @@ void zero_out_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS])
 void copy_column(bool (&dest)[NUM_ROWS][NUM_COLS], bool (&src)[CELL_HEIGHT][CELL_WIDTH], int column_index, int iteration, int starting_row){
   // Copy a single column from src array to destination array. 
   // Copy the column from src and put it in dest starting at the starting row in dest array
-  printf("Curr column: %d\n", column_index);
+
+  #if (DEBUG == 1)
+    printf("Curr column: %d\n", column_index);
+  #endif
+
   for(int i = 0; i < CELL_HEIGHT; i++){
     if((starting_row+i) > (NUM_ROWS-1))
     {
-      printf("poopy\n");
+      #if (DEBUG == 1)
+        printf("poopy\n");
+      #endif
       break;
     }
     dest[starting_row+i][column_index+iteration] = src[i][iteration];
-    printf("i: %d  dest: %d  src: %d\n",i,dest[i+starting_row][column_index+iteration], src[i][iteration]);
+    #if (DEBUG == 1)
+      printf("i: %d  dest: %d  src: %d\n",i,dest[i+starting_row][column_index+iteration], src[i][iteration]);
+    #endif
   }
 }
 
@@ -225,7 +301,10 @@ bool string_to_matrix(char* str, bool (&matrix)[NUM_ROWS][NUM_COLS]){
 
   // Loop over all characters in string, and append to matrix
   for(uint8_t i = 0; i < str_l; i++){
-    printf("Curr char: %c\n", str[i]);
+
+    #if (DEBUG == 1)
+      printf("Curr char: %c\n", str[i]);
+    #endif
 
     // if(str[i] == '_')
 	// {
@@ -240,7 +319,9 @@ bool string_to_matrix(char* str, bool (&matrix)[NUM_ROWS][NUM_COLS]){
     // }
 
     if(!append_char_to_matrix(str[i], matrix, &base_col, i)){
-      printf("\nReturning false from append_char_to_matrix\n");
+      #if (DEBUG == 1)
+        printf("\nReturning false from append_char_to_matrix\n");
+      #endif
       return false;
     }
   }

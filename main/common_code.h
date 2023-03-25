@@ -16,6 +16,8 @@
 // #include "Wire.h"
 // #include <Adafruit_PWMServoDriver.h>
 
+#define DEBUG 0
+
 #define DELAY_BETWEEN_STRINGS_MS 5000 // 5 seconds
 
 #define OFF_STATE 0   // PWM for off
@@ -25,6 +27,10 @@
 #define NUM_ROWS 10 * 2
 // #define NUM_COLS 10 * 2
 #define NUM_COLS 10 * 20
+
+#define NUM_BOARDS 5
+#define COLS_PER_BOARD 10
+#define ROWS_PER_BOARD 10
 
 #define OFF 0         // OFF function pointer 2d array
 #define ON  1         // ON function pointer 2d array
@@ -49,6 +55,9 @@ bool append_char_to_matrix(char c, bool (&matrix)[NUM_ROWS][NUM_COLS]);
 
 // Print out the matrices
 void print_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS]);
+
+void print_each_board_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS], int index);
+void print_each_board_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS]);
 
 // Params: 
 //        str <- string to print
