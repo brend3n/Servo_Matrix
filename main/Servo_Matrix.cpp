@@ -36,6 +36,9 @@ void loop()
   print_matrices_until_string_depleted(string_matrix);
 
 
+  print_matrices_until_string_depleted_string_only_edition(in);
+
+
   // Timing
   t = clock() - t;
   printf("Entire loop took %f seconds\n",((double)t)/CLOCKS_PER_SEC);

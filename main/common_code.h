@@ -59,6 +59,7 @@ void print_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS]);
 
 void print_each_board_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS], int index);
 void print_matrices_until_string_depleted(bool (&matrix)[NUM_ROWS][NUM_COLS]);
+void print_matrices_until_string_depleted_string_only_edition(char* str);
 
 // Params: 
 //        str <- string to print

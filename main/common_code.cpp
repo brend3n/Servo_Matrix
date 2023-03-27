@@ -246,10 +246,6 @@ int get_last_active_column_from_end (bool (&matrix)[NUM_ROWS][NUM_COLS])
 
 void print_matrices_until_string_depleted(bool (&matrix)[NUM_ROWS][NUM_COLS])
 {
-
-  // TODO: need to fix this such that it only takes the entire string rather than allocating the entire matrix in the heap
-
-
 	printf("\n\nPrint until string is all matrixed: \n");
 
 
@@ -318,6 +314,51 @@ void print_matrices_until_string_depleted(bool (&matrix)[NUM_ROWS][NUM_COLS])
 	printf("\n");
 }
 
+void print_matrices_until_string_depleted_string_only_edition(char* str)
+{
+
+  // TODO: need to fix this such that it only takes the entire string rather than allocating the entire matrix in the heap
+
+	printf("\n\nPrint until string is all matrixed but #_there_are_no_matrices_here: \n");
+
+  int board_index = 0; // Used for assigning matrices to a board or just a number
+  int string_length;
+
+  char temp_char; // Stores current character we are processing
+  bool temp_char_cell [CELL_HEIGHT][CELL_WIDTH]; // Stores matrix cell for temp_char's character matrix
+  bool temp_board_module [ROWS_PER_BOARD][COLS_PER_BOARD]; // Stores current baord module matrix
+
+  // Little null check
+  if (!str)
+    return;
+
+  string_length = strlen(str);
+
+  // Loop over all characters in the string
+  for(int i = 0; i < string_length; i++)
+  {
+
+    // Take a character from the string
+    temp_char = str[i];
+
+    get_character_cell(temp_char, temp_char_cell);
+
+    // Copy temp_char_cell into temp_board_module
+    
+
+
+
+
+
+
+    // Boards needed do be incremented here
+    board_index++;
+  }
+  
+  printf("Total matrices/modules needed: %d\n", board_index+1);
+	printf("\n");
+}
+
 void zero_out_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS])
 {
     for(int j = 0; j < NUM_ROWS; j++){
@@ -327,8 +368,10 @@ void zero_out_matrix(bool (&matrix)[NUM_ROWS][NUM_COLS])
     }
 }
 
-// TODO: This has to be updated
+// TODO: This has to be updated.
+// TODO: Does it? Does it really have to be updated?
 void copy_column(bool (&dest)[NUM_ROWS][NUM_COLS], bool (&src)[CELL_HEIGHT][CELL_WIDTH], int column_index, int iteration, int starting_row){
+
   // Copy a single column from src array to destination array. 
   // Copy the column from src and put it in dest starting at the starting row in dest array
 
@@ -359,39 +402,11 @@ bool append_char_to_matrix(char c, bool (&matrix)[NUM_ROWS][NUM_COLS], int* base
   // Append a single column SINGLE_COLUMN
   bool cell[CELL_HEIGHT][CELL_WIDTH];
 
-//   if (c == '_'){
-//     printf("ADDING SINGLE COLUMN\n");
-//     get_character_cell(' ', cell);
-//     copy_column(matrix, cell, *base_col, 0, NUM_ROWS-CELL_HEIGHT);
-//     *base_col += 1;
-//     return true;
-//   }
-
   get_character_cell(c, cell);
 
 
-  for(int i = 0; i < CELL_WIDTH; i++){
-
-    // // If first letter, skip
-    // if(iteration != 0)
-    // {
-    //   // Check if there is no space between the previous character's last column
-    //   //  Loop over ever row in the last column
-    //   for (int i = 0; i < NUM_ROWS; i++)
-    //   {
-    //       printf("base_col: %d\n", *base_col);
-    //       // Check if it is filled
-    //       if (matrix[i + (NUM_ROWS-CELL_HEIGHT)][*base_col-1] == 1)
-    //       {
-    //         // If there is no space, add one
-    //         get_character_cell(' ', cell);
-    //         copy_column(matrix, cell, *base_col, 0, NUM_ROWS-CELL_HEIGHT);
-    //         *base_col += 1;
-    //         break; // Done needing to add another empty column
-    //       }
-    //   }
-    // }
-  
+  for(int i = 0; i < CELL_WIDTH; i++)
+  {
     copy_column(matrix, cell, *base_col, i, NUM_ROWS-CELL_HEIGHT);
   }
   *base_col += CELL_WIDTH;
@@ -423,18 +438,6 @@ bool string_to_matrix(char* str, bool (&matrix)[NUM_ROWS][NUM_COLS]){
     #if (DEBUG == 1)
       printf("Curr char: %c\n", str[i]);
     #endif
-
-    // if(str[i] == '_')
-	// {
-    //   uint8_t num_cols_in_space = 1;
-    //   for(uint8_t i = 0; i < num_cols_in_space; i++){
-    //     if(!append_char_to_matrix('_', matrix, &base_col, i)){
-    //       printf("\nReturning false from append_char_to_matrix\n");
-    //       return false;
-    //     }
-    //   }
-    //   continue;
-    // }
 
     if(!append_char_to_matrix(str[i], matrix, &base_col, i)){
       #if (DEBUG == 1)
