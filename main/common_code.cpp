@@ -319,7 +319,7 @@ void print_matrices_until_string_depleted_string_only_edition(char* str)
 
   // TODO: need to fix this such that it only takes the entire string rather than allocating the entire matrix in the heap
 
-	printf("\n\nPrint until string is all matrixed but #_there_are_no_matrices_here: \n");
+	printf("\n\nPrint until string is all matrixed but #there_are_no_matrices_here: \n");
 
   int board_index = 0; // Used for assigning matrices to a board or just a number
   int string_length;
@@ -346,9 +346,7 @@ void print_matrices_until_string_depleted_string_only_edition(char* str)
     // Copy temp_char_cell into temp_board_module
     
 
-
-
-
+    // TODO: The rest goes here whenever you want to do it
 
 
     // Boards needed do be incremented here

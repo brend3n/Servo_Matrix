@@ -36,7 +36,8 @@ void loop()
   print_matrices_until_string_depleted(string_matrix);
 
 
-  print_matrices_until_string_depleted_string_only_edition(in);
+  // TODO: start here by uncommenting the line below
+  // print_matrices_until_string_depleted_string_only_edition(in);
 
 
   // Timing

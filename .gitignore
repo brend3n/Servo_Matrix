@@ -2,3 +2,6 @@ deprecated
 /deprecated
 *.o
 *.out
+/imports_
+imports_/
+/imports/

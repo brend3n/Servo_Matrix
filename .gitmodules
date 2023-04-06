@@ -1,0 +1,3 @@
+[submodule "main/imports_/paho_mqtt_"]
+	path = main/imports_/paho_mqtt_
+	url = https://github.com/eclipse/paho.mqtt.c.git

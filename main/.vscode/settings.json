@@ -1,6 +1,8 @@
 {
 	"files.associations": {
 		"*.conf": "properties",
-		"limits": "cpp"
+		"limits": "cpp",
+		"string.h": "c",
+		"mqttclient.h": "c"
 	}
 }
