@@ -1,12 +1,16 @@
 // Common code
 #include "common_code.h"
-
+#include "mqtt/mqtt_client.h"
 
 #define MAX_STR_SIZE 1024
 bool string_matrix [NUM_ROWS][NUM_COLS];
 
 void setup()
 {
+    int rc;
+    mqtt_init();
+    rc = mqtt_connect();
+    printf("Mqtt connect -> %d\n", rc);
 }
 
 void loop()
@@ -34,6 +38,7 @@ void loop()
     print_each_board_matrix(string_matrix, index);
 
   print_matrices_until_string_depleted(string_matrix);
+  mqtt_send(in);
 
 
   // TODO: start here by uncommenting the line below

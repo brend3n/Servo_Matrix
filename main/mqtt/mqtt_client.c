@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "MQTTClient.h"
+#include "mqtt_client.h"
 
 #include <unistd.h>
 
@@ -18,7 +18,7 @@ MQTTClient_connectOptions conn_opts = MQTTClient_connectOptions_initializer;
 MQTTClient_message pubmsg = MQTTClient_message_initializer;
 MQTTClient_deliveryToken token;
 
-int mqtt_init()
+int mqtt_init(void)
 {
 
 
@@ -30,13 +30,15 @@ int mqtt_init()
     return 0;
 }
 
-int mqtt_deinit()
+int mqtt_deinit(void)
 {
     MQTTClient_disconnect(client, 10000);
     MQTTClient_destroy(&client);
+
+    return 0;
 }
 
-int mqtt_connect()
+int mqtt_connect(void)
 {
     int rc;
 
@@ -67,22 +69,29 @@ int mqtt_send(char* msg)
     return rc;
 }
 
-int main(int argc, char* argv[])
+
+
+MQTTClient* get_client(void)
 {
-
-    mqtt_init();
-
-    int rc;
-
-    rc = mqtt_connect();
-
-    while(1)
-    {
-        mqtt_send("Brenden");
-        sleep(2);
-    }
-
-
-    mqtt_deinit();
-    return rc;
+    return &client;
 }
+
+// int main(int argc, char* argv[])
+// {
+
+//     mqtt_init();
+
+//     int rc;
+
+//     rc = mqtt_connect();
+
+//     while(1)
+//     {
+//         mqtt_send("Brenden");
+//         sleep(2);
+//     }
+
+
+//     mqtt_deinit();
+//     return rc;
+// }
